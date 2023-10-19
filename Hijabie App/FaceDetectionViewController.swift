@@ -466,6 +466,26 @@ class FaceDetectionViewController: UIViewController, AVCaptureVideoDataOutputSam
             self.addIndicators(to: faceRectanglePath,
                                faceLandmarksPath: faceLandmarksPath,
                                for: faceObservation)
+            if let landmarks = faceObservation.landmarks{
+                if let faceContourLandmark = landmarks.faceContour {
+                    for point in faceContourLandmark.normalizedPoints{
+                        // cara ngubah CGPoint jadi vector_float2 = vector_float2(x: Float(point.x), y: Float(point.y))
+                        if let imagePoint = try? VNImagePointForFaceLandmarkPoint(vector_float2(x: Float(point.x), y: Float(point.y)), faceObservation.boundingBox, Int(self.captureDeviceResolution.width), Int(self.captureDeviceResolution.height)) {
+                            let landmarkX = CGFloat(imagePoint.x)
+                            let landmarkY = CGFloat(imagePoint.y)
+                            
+                            print(point)
+                           
+//                            let landmarkCircle = CALayer()
+//                                                   landmarkCircle.bounds = CGRect(x: 0, y: 0, width: 10, height: 10)
+//                                                   landmarkCircle.position = CGPoint(x: landmarkX, y: landmarkY)
+//                                                   landmarkCircle.cornerRadius = 5
+//                                                   landmarkCircle.backgroundColor = UIColor.red.cgColor
+//                                                   faceLandmarksShapeLayer.addSublayer(landmarkCircle)
+                        }
+                    }
+                }
+            }
         }
         
         faceRectangleShapeLayer.path = faceRectanglePath
