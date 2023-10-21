@@ -9,12 +9,15 @@
 import UIKit
 import AVKit
 import Vision
+import SceneKit
+import ARKit
 
 class FaceDetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     // Main view for showing camera content.
 //    @IBOutlet weak var previewView: UIView?
-    var previewView2: UIView!
+    var previewView2: ARSCNView!
+//    var sceneView = (frame: previewView2)
     
     // AVCapture variables to hold sequence data
     var session: AVCaptureSession?
@@ -35,23 +38,46 @@ class FaceDetectionViewController: UIViewController, AVCaptureVideoDataOutputSam
     // Vision requests
     private var detectionRequests: [VNDetectFaceRectanglesRequest]?
     private var trackingRequests: [VNTrackObjectRequest]?
-    
     lazy var sequenceRequestHandler = VNSequenceRequestHandler()
+    private var requests = [VNRequest]()
+    
+//    /// Creates a scene node containing yellow coloured text.
+//    /// - Parameter faceGeometry: the geometry the node is using.
+//    private func addTextNode(faceGeometry: ARSCNFaceGeometry) {
+//        let text = SCNText(string: "", extrusionDepth: 1)
+//        text.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+//        let material = SCNMaterial()
+//        material.diffuse.contents = UIColor.systemYellow
+//        text.materials = [material]
+//
+//        let textNode = SCNNode(geometry: faceGeometry)
+//        textNode.position = SCNVector3(-0.1, 0.3, -0.5)
+//        textNode.scale = SCNVector3(0.003, 0.003, 0.003)
+//        textNode.geometry = text
+//        self.textNode = textNode
+//        previewView2.scene.rootNode.addChildNode(textNode)
+//    }
+    
+//    //CreateML
+//    private let modelML = try! VNCoreMLModel(for: FacialShapeML().model)
+//    private var textNode: SCNNode?
+ 
     
     // MARK: UIViewController overrides
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        previewView2 = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.width, height: self.view.frame.height)))
+//        previewView2.showsStatistics = true
+        previewView2 = ARSCNView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.width, height: self.view.frame.height)))
         previewView2.center = self.view.center
-//        previewView2.backgroundColor = .red
+
         self.view.addSubview(previewView2!)
 
         self.session = self.setupAVCaptureSession()
         
         self.prepareVisionRequest()
         
-        
+        setupVision()
         self.session?.startRunning()
     }
     
@@ -271,9 +297,38 @@ class FaceDetectionViewController: UIViewController, AVCaptureVideoDataOutputSam
         self.setupVisionDrawingLayers()
     }
     
+    
+    //MARK: Vision Setup
+    func setupVision() -> NSError {
+        // Setup Vision parts
+        let error: NSError! = nil
+        
+        guard let modelURL = Bundle.main.url(forResource: "FacialShapeML", withExtension: "mlmodelc") else {
+            return NSError(domain: "VisionObjectRecognitionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing"])
+        }
+        do {
+            let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL))
+            let objectRecognition = VNCoreMLRequest(model: visionModel, completionHandler: { (request, error) in
+                DispatchQueue.main.async(execute: {
+                    // perform all the UI updates on the main queue
+                    if let results = request.results {
+                        self.setupVisionDrawingLayers()
+                    }
+        
+                })
+            })
+            self.requests = [objectRecognition]
+        } catch let error as NSError {
+            print("Model loading went wrong: \(error)")
+        }
+        
+        return error
+    }
+    
     // MARK: Drawing Vision Observations
     
-    fileprivate func setupVisionDrawingLayers() {
+    func setupVisionDrawingLayers()  {
+        
         let captureDeviceResolution = self.captureDeviceResolution
         
         let captureDeviceBounds = CGRect(x: 0,
@@ -308,18 +363,7 @@ class FaceDetectionViewController: UIViewController, AVCaptureVideoDataOutputSam
         faceRectangleShapeLayer.lineWidth = 5
         faceRectangleShapeLayer.shadowOpacity = 0.7
         faceRectangleShapeLayer.shadowRadius = 5
-        
-//        let faceCircleShapeLayer = CAShapeLayer()
-//        faceCircleShapeLayer.name = "CircleOutlineLayer"
-//        faceCircleShapeLayer.bounds = captureDeviceBounds
-//        faceCircleShapeLayer.anchorPoint = normalizedCenterPoint
-//        faceCircleShapeLayer.position = captureDeviceBoundsCenterPoint
-//        faceCircleShapeLayer.fillColor = nil
-//        faceCircleShapeLayer.path = UIBezierPath(ovalIn: CGRect(x: 50, y: 50, width: 100, height: 100)).cgPath
-//        faceCircleShapeLayer.strokeColor = UIColor.white.withAlphaComponent(0.7).cgColor
-//        faceCircleShapeLayer.lineWidth = 5
-//        faceCircleShapeLayer.shadowOpacity = 0.7
-//        faceCircleShapeLayer.shadowRadius = 5
+    
         
         let faceLandmarksShapeLayer = CAShapeLayer()
         faceLandmarksShapeLayer.name = "FaceLandmarksLayer"
@@ -345,7 +389,7 @@ class FaceDetectionViewController: UIViewController, AVCaptureVideoDataOutputSam
         self.updateLayerGeometry()
     }
     
-    fileprivate func updateLayerGeometry() {
+    func updateLayerGeometry() {
         guard let overlayLayer = self.detectionOverlayLayer,
             let rootLayer = self.rootLayer,
             let previewLayer = self.previewLayer
@@ -466,26 +510,26 @@ class FaceDetectionViewController: UIViewController, AVCaptureVideoDataOutputSam
             self.addIndicators(to: faceRectanglePath,
                                faceLandmarksPath: faceLandmarksPath,
                                for: faceObservation)
-            if let landmarks = faceObservation.landmarks{
-                if let faceContourLandmark = landmarks.faceContour {
-                    for point in faceContourLandmark.normalizedPoints{
-                        // cara ngubah CGPoint jadi vector_float2 = vector_float2(x: Float(point.x), y: Float(point.y))
-                        if let imagePoint = try? VNImagePointForFaceLandmarkPoint(vector_float2(x: Float(point.x), y: Float(point.y)), faceObservation.boundingBox, Int(self.captureDeviceResolution.width), Int(self.captureDeviceResolution.height)) {
-                            let landmarkX = CGFloat(imagePoint.x)
-                            let landmarkY = CGFloat(imagePoint.y)
-                            
-                            print(point)
-                           
-//                            let landmarkCircle = CALayer()
-//                                                   landmarkCircle.bounds = CGRect(x: 0, y: 0, width: 10, height: 10)
-//                                                   landmarkCircle.position = CGPoint(x: landmarkX, y: landmarkY)
-//                                                   landmarkCircle.cornerRadius = 5
-//                                                   landmarkCircle.backgroundColor = UIColor.red.cgColor
-//                                                   faceLandmarksShapeLayer.addSublayer(landmarkCircle)
-                        }
-                    }
-                }
-            }
+//            if let landmarks = faceObservation.landmarks{
+//                if let faceContourLandmark = landmarks.faceContour {
+//                    for point in faceContourLandmark.normalizedPoints{
+//                        // cara ngubah CGPoint jadi vector_float2 = vector_float2(x: Float(point.x), y: Float(point.y))
+//                        if let imagePoint = try? VNImagePointForFaceLandmarkPoint(vector_float2(x: Float(point.x), y: Float(point.y)), faceObservation.boundingBox, Int(self.captureDeviceResolution.width), Int(self.captureDeviceResolution.height)) {
+//                            let landmarkX = CGFloat(imagePoint.x)
+//                            let landmarkY = CGFloat(imagePoint.y)
+//                            
+//                            print(point)
+//                           
+////                            let landmarkCircle = CALayer()
+////                                                   landmarkCircle.bounds = CGRect(x: 0, y: 0, width: 10, height: 10)
+////                                                   landmarkCircle.position = CGPoint(x: landmarkX, y: landmarkY)
+////                                                   landmarkCircle.cornerRadius = 5
+////                                                   landmarkCircle.backgroundColor = UIColor.red.cgColor
+////                                                   faceLandmarksShapeLayer.addSublayer(landmarkCircle)
+//                        }
+//                    }
+//                }
+//            }
         }
         
         faceRectangleShapeLayer.path = faceRectanglePath
@@ -598,6 +642,7 @@ class FaceDetectionViewController: UIViewController, AVCaptureVideoDataOutputSam
             guard let observation = trackingResults[0] as? VNDetectedObjectObservation else {
                 return
             }
+            
             let faceObservation = VNFaceObservation(boundingBox: observation.boundingBox)
             faceLandmarksRequest.inputFaceObservations = [faceObservation]
             
@@ -616,4 +661,3 @@ class FaceDetectionViewController: UIViewController, AVCaptureVideoDataOutputSam
         }
     }
 }
-

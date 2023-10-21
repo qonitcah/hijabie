@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var faceData: FaceShapeData = FaceShapeData()
+
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+        FaceDetection(faceData: faceData)
+            Text(faceData.faceLabel)
         }
         .padding()
     }
+}
+
+class FaceShapeData: ObservableObject{
+    @Published var faceLabel: String = ""
+    @Published var faceConfidence: Double = 0.0
 }
 
 #Preview {

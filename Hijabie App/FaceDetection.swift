@@ -12,13 +12,15 @@ import Vision
 import UIKit
 
 struct FaceDetection: UIViewControllerRepresentable {
+    var faceData: FaceShapeData
+    
     func makeUIViewController(context: Context) -> UIViewController {
-        let preview = FaceDetectionViewController()
+        let preview = CameraObjectDetection(faceData: faceData)
         return preview
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        
+        print("Data update")
     }
     
     public func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil){}

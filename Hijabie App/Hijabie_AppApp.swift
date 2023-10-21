@@ -11,8 +11,8 @@ import SwiftUI
 struct Hijabie_AppApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            FaceDetection()
+            ContentView()
+//            FaceDetection()
         }
     }
 }
