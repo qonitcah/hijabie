@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 import Vision
 
-class CameraObjectDetection:  CameraViewController {
+class CameraFaceDetection:  CameraViewController {
     let faceData: FaceShapeData
     
     init(faceData: FaceShapeData){

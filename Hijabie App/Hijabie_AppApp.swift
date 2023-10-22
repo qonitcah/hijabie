@@ -13,6 +13,7 @@ struct Hijabie_AppApp: App {
         WindowGroup {
             ContentView()
 //            FaceDetection()
+//            OnBoarding2View()
         }
     }
 }
