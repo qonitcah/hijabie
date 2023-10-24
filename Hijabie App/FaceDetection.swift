@@ -15,7 +15,7 @@ struct FaceDetection: UIViewControllerRepresentable {
     var faceData: FaceShapeData
     
     func makeUIViewController(context: Context) -> UIViewController {
-        let preview = CameraFaceDetection(faceData: faceData)
+        let preview = MachineLearning(faceData: faceData)
         return preview
     }
     
