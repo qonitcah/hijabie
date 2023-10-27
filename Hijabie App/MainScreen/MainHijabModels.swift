@@ -6,10 +6,25 @@
 //
 
 import SwiftUI
+import SceneKit
 
 struct MainHijabModels: View {
+    
+    
+    @State var models = [
+        Model(id: 0, name: "Model 1", modelName: "helmet.usdz", details: "")]
+              
+   @State var index = 0
+    
+    
+    
     var body: some View {
         VStack{
+            
+            SceneView(scene: SCNScene(named: models[index].modelName), options: [.autoenablesDefaultLighting, .allowsCameraControl])
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                .padding(.bottom, 100)
+                            
             ZStack{
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .frame(width: 170, height: 42)
@@ -19,31 +34,40 @@ struct MainHijabModels: View {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                     }
                     .frame(width: 69, height: 32)
-                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                    .background(Color.black)
+                    .background(Color.black.opacity(0.8))
                     .clipShape(Capsule(style: .continuous))
                     .foregroundStyle(Color.white)
                     .fontWeight(.semibold)
+                    
                     
                     Button("Tutorial") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                     }
                     .frame(width: 79, height: 32)
-                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                    .background(Color.black)
+                    .background(Color.black.opacity(0.8))
                     .clipShape(Capsule(style: .continuous))
                     .foregroundStyle(Color.white)
                     .fontWeight(.semibold)
+                    
                 }
                 .padding()
             }
             
-                Text("Hijab Model:")
-                .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.red).frame(width: 309,height: 28).opacity(0.6))
-            
+            Text("Hijab Model:")
+                .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.white).frame(width: 309,height: 28).opacity(0.6))
         }
     }
+    
 }
+
+struct Model : Identifiable {
+    
+    var id : Int
+    var name : String
+    var modelName : String
+    var details : String
+}
+
 
 #Preview {
     MainHijabModels()

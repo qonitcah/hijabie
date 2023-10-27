@@ -11,8 +11,9 @@ import SwiftUI
 struct Hijabie_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            
-            ContentView()
+           MainCamera_AR()
+
+//            ContentView()
 //            FaceDetection()
 //            OnBoarding2View()
         }
