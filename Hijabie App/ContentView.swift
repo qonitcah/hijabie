@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealityKit
 
 struct ContentView: View {
     @StateObject var faceData: FaceShapeData = FaceShapeData()
@@ -13,8 +14,11 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-        FaceDetection(faceData: faceData)
-            Text(faceData.faceLabel)
+//        FaceDetection(faceData: faceData)
+//            Text(faceData.faceLabel)
+            ARViewContainer()
+            
+            
         }
         .padding()
     }

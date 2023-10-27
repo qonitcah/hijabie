@@ -19,6 +19,7 @@ struct OnBoarding1View: View {
                 .multilineTextAlignment(.center)
                 .bold()
                 .padding(.bottom, 25)
+                .padding()
             
             HStack{
                 Image("hijab")
@@ -47,7 +48,7 @@ struct OnBoarding1View: View {
             .clipShape(Capsule())
             .foregroundStyle(Color.white)
         }
-        .padding(.top, 65)
+        .padding(.top, 50)
     }
 }
 

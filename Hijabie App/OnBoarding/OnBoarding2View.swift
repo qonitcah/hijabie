@@ -39,7 +39,7 @@ struct OnBoarding2View: View {
                     .padding(.bottom, 150)
                 
                 ZStack(alignment: .leading){
-                    RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
                         .fill(Color(.systemGray))
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color(.black))
