@@ -14,11 +14,15 @@ struct OnBoarding3View: View {
     var body: some View {
         NavigationView{
             ZStack{
+                
+                FaceDetection(faceData: faceData)
+                
                 Rectangle()
-                //            FaceDetection(faceData: faceData)
+                    .fill(Color.black)
+                    .opacity(0.5)
                 
                 VStack{
-                    Text("Face Scanning")
+                    Text("The Result")
                         .font(.title2)
                         .fontWeight(.bold)
                         .padding(.bottom, 67)
@@ -32,7 +36,7 @@ struct OnBoarding3View: View {
                         .padding(.bottom, 20)
                         .font(.custom("SF Pro Text", size: 20))
                     
-                    Text(/*faceData.faceLabel*/"Oval")
+                    Text(faceData.faceLabel)
                         .font(.custom("SF Compact", size: 38))
                         .foregroundColor(.white)
                         .fontWeight(.heavy)
@@ -54,6 +58,7 @@ struct OnBoarding3View: View {
             }
             .ignoresSafeArea()
         }
+        .navigationBarBackButtonHidden()
         
     }
 }

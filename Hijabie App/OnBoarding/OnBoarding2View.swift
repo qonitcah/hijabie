@@ -21,6 +21,9 @@ struct OnBoarding2View: View {
                 
             } else {
             ZStack{
+                
+                FaceDetection(faceData: faceData)
+                
                 GeometryReader { geometry in
                     Rectangle()
                         .fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]), startPoint: .bottom, endPoint: .top))
@@ -31,9 +34,6 @@ struct OnBoarding2View: View {
                         .frame(width: geometry.size.width, height: geometry.size.height / 2)
                         .position(x: geometry.size.width / 2, y: geometry.size.height / 5)
                 }
-                
-                //            FaceDetection(faceData: faceData)
-                //                Text(faceData.faceLabel)
                 
                 VStack{
                     Text("Face Scanning")

@@ -11,11 +11,12 @@ import SwiftUI
 struct Hijabie_AppApp: App {
     var body: some Scene {
         WindowGroup {
-           MainCamera_AR()
-
+//           MainCamera_AR()
+//            OnBoarding3View()
 //            ContentView()
 //            FaceDetection()
 //            OnBoarding2View()
+            OnBoarding1View()
         }
     }
 }
