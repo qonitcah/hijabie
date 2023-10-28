@@ -7,20 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B425697A2AEB92E9001FEC96 /* helmet.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B42569792AEB92E9001FEC96 /* helmet.usdz */; };
+		B41241E02AEBC08200C54430 /* hijab model 1.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B41241DF2AEBC08200C54430 /* hijab model 1.usdz */; };
 		B425697F2AEB9E7C001FEC96 /* MainCamera+AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */; };
 		B43D7D8C2AEB78BF00951AD6 /* MainHijabModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */; };
 		B464D2332ADE7E3C00376914 /* Hijabie_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464D2322ADE7E3C00376914 /* Hijabie_AppApp.swift */; };
 		B464D2352ADE7E3C00376914 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464D2342ADE7E3C00376914 /* ContentView.swift */; };
 		B464D2372ADE7E4000376914 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B464D2362ADE7E4000376914 /* Assets.xcassets */; };
 		B464D23A2ADE7E4000376914 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B464D2392ADE7E4000376914 /* Preview Assets.xcassets */; };
-		B464D2412ADE7EAD00376914 /* FaceDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464D2402ADE7EAD00376914 /* FaceDetectionViewController.swift */; };
 		B464D2432ADE7FA100376914 /* FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464D2422ADE7FA100376914 /* FaceDetection.swift */; };
-		B464D2452ADE8E8100376914 /* FaceLandmarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464D2442ADE8E8100376914 /* FaceLandmarkData.swift */; };
 		B470CED32AE3A588000CC5ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470CED22AE3A588000CC5ED /* CameraViewController.swift */; };
-		B470CED52AE3A937000CC5ED /* MachineLearning.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470CED42AE3A937000CC5ED /* MachineLearning.swift */; };
+		B470CED52AE3A937000CC5ED /* MachineLearningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470CED42AE3A937000CC5ED /* MachineLearningController.swift */; };
 		B470CED72AE3C41D000CC5ED /* FacialShape.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B470CED62AE3C41D000CC5ED /* FacialShape.mlmodel */; };
-		B476F2B82AE139D1002C7479 /* MachineLearningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B476F2B72AE139D1002C7479 /* MachineLearningModel.swift */; };
 		B476F2BA2AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B476F2B92AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel */; };
 		B476F2BE2AE140A8002C7479 /* FacialShapeML.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B476F2BD2AE140A8002C7479 /* FacialShapeML.mlmodel */; };
 		B48F8B102AE57095005208B7 /* OnBoarding3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48F8B0F2AE57095005208B7 /* OnBoarding3View.swift */; };
@@ -32,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B42569792AEB92E9001FEC96 /* helmet.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = helmet.usdz; sourceTree = "<group>"; };
+		B41241DF2AEBC08200C54430 /* hijab model 1.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "hijab model 1.usdz"; sourceTree = "<group>"; };
 		B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainCamera+AR.swift"; sourceTree = "<group>"; };
 		B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHijabModels.swift; sourceTree = "<group>"; };
 		B464D22F2ADE7E3C00376914 /* Hijabie App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hijabie App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,13 +37,10 @@
 		B464D2342ADE7E3C00376914 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B464D2362ADE7E4000376914 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B464D2392ADE7E4000376914 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B464D2402ADE7EAD00376914 /* FaceDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionViewController.swift; sourceTree = "<group>"; };
 		B464D2422ADE7FA100376914 /* FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
-		B464D2442ADE8E8100376914 /* FaceLandmarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLandmarkData.swift; sourceTree = "<group>"; };
 		B470CED22AE3A588000CC5ED /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		B470CED42AE3A937000CC5ED /* MachineLearning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearning.swift; sourceTree = "<group>"; };
+		B470CED42AE3A937000CC5ED /* MachineLearningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningController.swift; sourceTree = "<group>"; };
 		B470CED62AE3C41D000CC5ED /* FacialShape.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FacialShape.mlmodel; sourceTree = "<group>"; };
-		B476F2B72AE139D1002C7479 /* MachineLearningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningModel.swift; sourceTree = "<group>"; };
 		B476F2B92AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "RoundFacialShapeImageClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		B476F2BD2AE140A8002C7479 /* FacialShapeML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FacialShapeML.mlmodel; sourceTree = "<group>"; };
 		B48F8B0F2AE57095005208B7 /* OnBoarding3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding3View.swift; sourceTree = "<group>"; };
@@ -72,7 +66,7 @@
 		B42569742AEB8899001FEC96 /* 3DObject */ = {
 			isa = PBXGroup;
 			children = (
-				B42569792AEB92E9001FEC96 /* helmet.usdz */,
+				B41241DF2AEBC08200C54430 /* hijab model 1.usdz */,
 				B4E16E102AE7AF91002FFCF6 /* helmetAR.reality */,
 			);
 			path = 3DObject;
@@ -127,12 +121,7 @@
 				B464D2322ADE7E3C00376914 /* Hijabie_AppApp.swift */,
 				B464D2342ADE7E3C00376914 /* ContentView.swift */,
 				B464D2422ADE7FA100376914 /* FaceDetection.swift */,
-				B464D2402ADE7EAD00376914 /* FaceDetectionViewController.swift */,
-				B470CED22AE3A588000CC5ED /* CameraViewController.swift */,
-				B470CED42AE3A937000CC5ED /* MachineLearning.swift */,
-				B4C5E93C2AE6621000080A5D /* AugementedRealityController.swift */,
-				B464D2442ADE8E8100376914 /* FaceLandmarkData.swift */,
-				B476F2B72AE139D1002C7479 /* MachineLearningModel.swift */,
+				B4D80CAF2AECD87900CCAE9D /* Controller */,
 				B43D7D8A2AEB73F300951AD6 /* OnBoarding */,
 				B43D7D8D2AEB78DB00951AD6 /* MainScreen */,
 				B425697B2AEB9E35001FEC96 /* HijabModels */,
@@ -153,6 +142,16 @@
 				B464D2392ADE7E4000376914 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B4D80CAF2AECD87900CCAE9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B470CED22AE3A588000CC5ED /* CameraViewController.swift */,
+				B470CED42AE3A937000CC5ED /* MachineLearningController.swift */,
+				B4C5E93C2AE6621000080A5D /* AugementedRealityController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B425697A2AEB92E9001FEC96 /* helmet.usdz in Resources */,
+				B41241E02AEBC08200C54430 /* hijab model 1.usdz in Resources */,
 				B464D23A2ADE7E4000376914 /* Preview Assets.xcassets in Resources */,
 				B4E16E112AE7C065002FFCF6 /* helmetAR.reality in Resources */,
 				B464D2372ADE7E4000376914 /* Assets.xcassets in Resources */,
@@ -227,14 +226,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B464D2452ADE8E8100376914 /* FaceLandmarkData.swift in Sources */,
-				B470CED52AE3A937000CC5ED /* MachineLearning.swift in Sources */,
+				B470CED52AE3A937000CC5ED /* MachineLearningController.swift in Sources */,
 				B464D2432ADE7FA100376914 /* FaceDetection.swift in Sources */,
 				B476F2BA2AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel in Sources */,
 				B4C5E93D2AE6621000080A5D /* AugementedRealityController.swift in Sources */,
 				B470CED32AE3A588000CC5ED /* CameraViewController.swift in Sources */,
-				B464D2412ADE7EAD00376914 /* FaceDetectionViewController.swift in Sources */,
-				B476F2B82AE139D1002C7479 /* MachineLearningModel.swift in Sources */,
 				B43D7D8C2AEB78BF00951AD6 /* MainHijabModels.swift in Sources */,
 				B464D2352ADE7E3C00376914 /* ContentView.swift in Sources */,
 				B425697F2AEB9E7C001FEC96 /* MainCamera+AR.swift in Sources */,
