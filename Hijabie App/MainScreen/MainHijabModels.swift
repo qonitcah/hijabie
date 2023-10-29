@@ -12,7 +12,7 @@ struct MainHijabModels: View {
     
     
     @State var models = [
-        Model(id: 0, name: "Model 1", modelName: "hijab model 1.usdz", details: "")]
+        Model(id: 0, name: "Model 1", modelName: "hijab1.usdz", details: "")]
               
    @State var index = 0
     

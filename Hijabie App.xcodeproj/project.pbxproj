@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B41241E02AEBC08200C54430 /* hijab model 1.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B41241DF2AEBC08200C54430 /* hijab model 1.usdz */; };
 		B425697F2AEB9E7C001FEC96 /* MainCamera+AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */; };
 		B43D7D8C2AEB78BF00951AD6 /* MainHijabModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */; };
 		B464D2332ADE7E3C00376914 /* Hijabie_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464D2322ADE7E3C00376914 /* Hijabie_AppApp.swift */; };
@@ -20,6 +19,7 @@
 		B470CED72AE3C41D000CC5ED /* FacialShape.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B470CED62AE3C41D000CC5ED /* FacialShape.mlmodel */; };
 		B476F2BA2AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B476F2B92AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel */; };
 		B476F2BE2AE140A8002C7479 /* FacialShapeML.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B476F2BD2AE140A8002C7479 /* FacialShapeML.mlmodel */; };
+		B489EB462AEE25640006786B /* hijab1.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B489EB452AEE25640006786B /* hijab1.usdz */; };
 		B48F8B102AE57095005208B7 /* OnBoarding3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48F8B0F2AE57095005208B7 /* OnBoarding3View.swift */; };
 		B4C5E93B2AE661DF00080A5D /* FirstHijabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C5E93A2AE661DF00080A5D /* FirstHijabModel.swift */; };
 		B4C5E93D2AE6621000080A5D /* AugementedRealityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C5E93C2AE6621000080A5D /* AugementedRealityController.swift */; };
@@ -29,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B41241DF2AEBC08200C54430 /* hijab model 1.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "hijab model 1.usdz"; sourceTree = "<group>"; };
 		B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainCamera+AR.swift"; sourceTree = "<group>"; };
 		B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHijabModels.swift; sourceTree = "<group>"; };
 		B464D22F2ADE7E3C00376914 /* Hijabie App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hijabie App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +42,7 @@
 		B470CED62AE3C41D000CC5ED /* FacialShape.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FacialShape.mlmodel; sourceTree = "<group>"; };
 		B476F2B92AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "RoundFacialShapeImageClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		B476F2BD2AE140A8002C7479 /* FacialShapeML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FacialShapeML.mlmodel; sourceTree = "<group>"; };
+		B489EB452AEE25640006786B /* hijab1.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = hijab1.usdz; sourceTree = "<group>"; };
 		B48F8B0F2AE57095005208B7 /* OnBoarding3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding3View.swift; sourceTree = "<group>"; };
 		B4C5E93A2AE661DF00080A5D /* FirstHijabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstHijabModel.swift; sourceTree = "<group>"; };
 		B4C5E93C2AE6621000080A5D /* AugementedRealityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugementedRealityController.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		B42569742AEB8899001FEC96 /* 3DObject */ = {
 			isa = PBXGroup;
 			children = (
-				B41241DF2AEBC08200C54430 /* hijab model 1.usdz */,
+				B489EB452AEE25640006786B /* hijab1.usdz */,
 				B4E16E102AE7AF91002FFCF6 /* helmetAR.reality */,
 			);
 			path = 3DObject;
@@ -212,7 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B41241E02AEBC08200C54430 /* hijab model 1.usdz in Resources */,
+				B489EB462AEE25640006786B /* hijab1.usdz in Resources */,
 				B464D23A2ADE7E4000376914 /* Preview Assets.xcassets in Resources */,
 				B4E16E112AE7C065002FFCF6 /* helmetAR.reality in Resources */,
 				B464D2372ADE7E4000376914 /* Assets.xcassets in Resources */,
