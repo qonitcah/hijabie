@@ -92,7 +92,11 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     }
     
     func startCaptureSession() {
-        session.startRunning()
+        DispatchQueue.global(qos: .background).async {
+            // Start the AVCaptureSession here
+            self.session.startRunning()
+        }
+//        session.startRunning()
     }
     
     // Clean up capture setup

@@ -11,7 +11,7 @@ import Vision
 import UIKit
 
 struct FaceDetection: UIViewControllerRepresentable {
-    var faceData: FaceShapeData
+    @ObservedObject var faceData: FaceShapeData
     
     func makeUIViewController(context: Context) -> UIViewController {
         let preview = MachineLearning(faceData: faceData)

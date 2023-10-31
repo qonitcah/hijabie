@@ -8,46 +8,46 @@
 import SwiftUI
 
 struct MainCamera_AR: View {
+    
+    @Binding var models: [Model]
+    @Binding var selectedFilterIndex: Int
+    @Binding var index: Int
+    @Binding var ARViewToShow: Bool
+    @Binding var tutorViewToShow: Bool
+
+    
+    let filters = ["Filter 1", "Filter 2", "Filter 3"]
+    
     var body: some View {
-        NavigationView{
             ZStack{
                 ARViewContainer()
+                
                 VStack{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .frame(width: 170, height: 42)
-                            .opacity(0.25)
-                        HStack{
-                            NavigationLink(destination: MainCamera_AR()){
-                                Text("Try On")
-                                    .frame(width: 69, height: 32)
-                                    .background(Color.black.opacity(0.8))
-                                    .clipShape(Capsule(style: .continuous))
-                                    .foregroundStyle(Color.yellow)
-                                    .fontWeight(.bold)
-                            }
-                            NavigationLink(destination: MainCamera_AR()){
-                                Text("Tutorial")
-                                    .frame(width: 79, height: 32)
-                                    .background(Color.black.opacity(0.8))
-                                    .clipShape(Capsule(style: .continuous))
-                                    .foregroundStyle(Color.white)
-                                    .fontWeight(.light)
-                            }
-                        }
-                        .padding()
-                    }
                     
-                    Text("Hijab Model:")
-                        .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.white).frame(width: 309,height: 28).opacity(0.6))
+                    ButtonTryTutorial(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index, ARViewToShow: $ARViewToShow, tutorViewToShow: $tutorViewToShow)
+                    
+                    HStack{
+                        Text("Hijab Model:")
+                        
+                        Text(models[index].name)
+                            .bold()
+                    }
+                    .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.gray).frame(width: 250,height: 28).opacity(0.75))
+                    .foregroundColor(.black)
+                    
+                    ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index)
+                    }
+                .padding(.top, 585)
+                
+                
                 }
-                .padding(.top, 530)
-            }
+                
+                
         }
-        .navigationBarBackButtonHidden()
+      
     }
-}
 
-#Preview {
-    MainCamera_AR()
-}
+
+//#Preview {
+//    MainCamera_AR(models: [.constant(0)], selectedFilterIndex: .constant(0), index: .constant(0))
+//}

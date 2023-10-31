@@ -9,6 +9,7 @@ import RealityKit
 import ARKit
 
 struct ARViewContainer: UIViewRepresentable {
+//    @ObservedObject var faceData: FaceShapeData
     
     func makeUIView(context: Context) -> ARView {
         
@@ -22,7 +23,12 @@ struct ARViewContainer: UIViewRepresentable {
             arView.session.run(configuration)
             
             
-            if let anchor = try? Entity.loadAnchor(named: "helmetAR", in: nil) {
+            
+//            if facedata.faceLabel == "oval"{
+//                
+//            }
+            
+            if let anchor = try? Entity.loadAnchor(named: "Hijab1square", in: nil) {
                 arView.scene.addAnchor(anchor)
             }
             

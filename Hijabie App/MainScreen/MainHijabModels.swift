@@ -10,62 +10,74 @@ import SceneKit
 
 struct MainHijabModels: View {
     
-    
     @State var models = [
-        Model(id: 0, name: "Model 1", modelName: "hijab1.usdz", details: "")]
-              
-   @State var index = 0
+        Model(id: 0, name: "Pashmina", modelName: "hijab1.usdz", details: "1"),
+        Model(id: 1,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "2"),
+        Model(id: 2,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "3")]
+    @State var index = 0
+    @State private var selectedFilterIndex: Int = 0
+    @State var ARViewToShow: Bool = false
+    @State var tutorViewToShow: Bool = false
     
+    let filters = ["Filter 1", "Filter 2", "Filter 3"]
     
-    
+
     var body: some View {
-        NavigationView{
-            ZStack{
-                Rectangle()
+        
+        ZStack{
+                if (!ARViewToShow){
+                    Rectangle()
                     .fill(Color.white)
-                
-                VStack{
-                    SceneView(scene: SCNScene(named: models[index].modelName), options: [.autoenablesDefaultLighting, .allowsCameraControl])
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
-                        .padding(.bottom, 100)
                     
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .frame(width: 170, height: 42)
-                            .opacity(0.25)
-                        HStack{
-                            Button(action: {
-                                //                                    CameraViewController()
-                            }) {
-                                Text("Try On")
-                                    .frame(width: 69, height: 32)
-                                    .background(Color.black.opacity(0.8))
-                                    .clipShape(Capsule(style: .continuous))
-                                    .foregroundStyle(Color.white)
-                                    .fontWeight(.semibold)
-                            }
+                } else {
+                    if (!tutorViewToShow) {
+                        MainCamera_AR(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index, ARViewToShow: $ARViewToShow, tutorViewToShow: $tutorViewToShow)
+                    } else {
+                        TutorialView(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index, ARViewToShow: $ARViewToShow, tutorViewToShow: $tutorViewToShow)
+                    }
+                }
+                
+            if (!ARViewToShow){
+                VStack(){
+                    SceneView(scene: SCNScene(named: models[index].modelName), options: [.autoenablesDefaultLighting, .allowsCameraControl])
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                    .padding(.bottom, 50)
+                    
+                    ButtonTryTutorial(models: $models,selectedFilterIndex: $selectedFilterIndex, index: $index, ARViewToShow: $ARViewToShow, tutorViewToShow: $tutorViewToShow)
+                    
+                    namaModel(models: $models, index: $index)
+                    
+                    ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index)
+                }
+                .padding(.top, 100)
+                        
+                    } else {
+                        
+                        EmptyView()
                             
-                            
-                            NavigationLink(destination: MainCamera_AR()){
-                                Text("Tutorial")
-                                    .frame(width: 79, height: 32)
-                                    .background(Color.black.opacity(0.8))
-                                    .clipShape(Capsule(style: .continuous))
-                                    .foregroundStyle(Color.white)
-                                    .fontWeight(.semibold)
-                            }
-                        }
-                        .padding()
                     }
                     
-                    Text("Hijab Model:")
-                        .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.white).frame(width: 309,height: 28).opacity(0.6))
-                    
-                }
-            }
-            .ignoresSafeArea()
         }
-        
+            .ignoresSafeArea()
+            .navigationBarBackButtonHidden()
+    }
+    
+    
+}
+
+struct namaModel: View {
+    @Binding var models: [Model]
+    @Binding var index: Int
+    
+    var body: some View {
+        HStack{
+            Text("Hijab Model:")
+            
+            Text(models[index].name)
+                .bold()
+        }
+        .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.gray).frame(width: 250,height: 28).opacity(0.25))
+        .foregroundColor(.black)
     }
 }
 
@@ -76,7 +88,6 @@ struct Model : Identifiable {
     var modelName : String
     var details : String
 }
-
 
 #Preview {
     MainHijabModels()

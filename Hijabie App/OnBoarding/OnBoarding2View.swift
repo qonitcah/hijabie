@@ -49,7 +49,7 @@ struct OnBoarding2View: View {
                             .opacity(0.5)
                         Text("Identifying your face..")
                             .fontWeight(/*@START_MENU_TOKEN@*/.light/*@END_MENU_TOKEN@*/)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black)
                             .font(.custom("SF Pro Text", size: 20))
                     }
                     .padding(.bottom, 67)

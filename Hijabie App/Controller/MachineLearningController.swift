@@ -46,10 +46,14 @@ class MachineLearning:  CameraViewController {
                         return
                     }
                     
-                    if result.confidence > 0.5 {
-                        self.faceData.faceLabel = result.identifier
-                        self.faceData.faceConfidence = Double(result.confidence)
+                    
+                    if self.faceData.faceLabel.isEmpty{
+                        if result.confidence > 0.5 {
+                            self.faceData.faceLabel = result.identifier
+                            self.faceData.faceConfidence = Double(result.confidence)
+                        }
                     }
+                    
                     
                     
                     
