@@ -18,6 +18,8 @@ struct MainHijabModels: View {
     @State private var selectedFilterIndex: Int = 0
     @State var ARViewToShow: Bool = false
     @State var tutorViewToShow: Bool = false
+    @ObservedObject var faceData: FaceShapeData
+
     
     let filters = ["Filter 1", "Filter 2", "Filter 3"]
     
@@ -31,7 +33,7 @@ struct MainHijabModels: View {
                     
                 } else {
                     if (!tutorViewToShow) {
-                        MainCamera_AR(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index, ARViewToShow: $ARViewToShow, tutorViewToShow: $tutorViewToShow)
+                        MainCamera_AR(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index, ARViewToShow: $ARViewToShow, tutorViewToShow: $tutorViewToShow, faceData: faceData)
                     } else {
                         TutorialView(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index, ARViewToShow: $ARViewToShow, tutorViewToShow: $tutorViewToShow)
                     }
@@ -89,6 +91,4 @@ struct Model : Identifiable {
     var details : String
 }
 
-#Preview {
-    MainHijabModels()
-}
+

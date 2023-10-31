@@ -14,13 +14,13 @@ struct MainCamera_AR: View {
     @Binding var index: Int
     @Binding var ARViewToShow: Bool
     @Binding var tutorViewToShow: Bool
-
+    @ObservedObject var faceData: FaceShapeData
     
     let filters = ["Filter 1", "Filter 2", "Filter 3"]
     
     var body: some View {
             ZStack{
-                ARViewContainer()
+                ARViewContainer(faceData: faceData)
                 
                 VStack{
                     

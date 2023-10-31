@@ -10,7 +10,6 @@
 		B425697F2AEB9E7C001FEC96 /* MainCamera+AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */; };
 		B4349DCB2AEEC9C60031BAA0 /* helmet_blender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B4349DCA2AEEC9C60031BAA0 /* helmet_blender.usdz */; };
 		B43D7D8C2AEB78BF00951AD6 /* MainHijabModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */; };
-		B459A0F82AEE4D5D005B068A /* Hijab1square.reality in Resources */ = {isa = PBXBuildFile; fileRef = B459A0F72AEE4D5D005B068A /* Hijab1square.reality */; };
 		B464D2332ADE7E3C00376914 /* Hijabie_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464D2322ADE7E3C00376914 /* Hijabie_AppApp.swift */; };
 		B464D2352ADE7E3C00376914 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464D2342ADE7E3C00376914 /* ContentView.swift */; };
 		B464D2372ADE7E4000376914 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B464D2362ADE7E4000376914 /* Assets.xcassets */; };
@@ -19,6 +18,11 @@
 		B470CED32AE3A588000CC5ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470CED22AE3A588000CC5ED /* CameraViewController.swift */; };
 		B470CED52AE3A937000CC5ED /* MachineLearningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470CED42AE3A937000CC5ED /* MachineLearningController.swift */; };
 		B470CED72AE3C41D000CC5ED /* FacialShape.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B470CED62AE3C41D000CC5ED /* FacialShape.mlmodel */; };
+		B475A88D2AF0F4EA005A7B82 /* Hijab1round.reality in Resources */ = {isa = PBXBuildFile; fileRef = B475A8882AF0F4E6005A7B82 /* Hijab1round.reality */; };
+		B475A88F2AF0F4EA005A7B82 /* Hijab1heart.reality in Resources */ = {isa = PBXBuildFile; fileRef = B475A88A2AF0F4E8005A7B82 /* Hijab1heart.reality */; };
+		B475A8902AF0F4EA005A7B82 /* Hijab1oblong.reality in Resources */ = {isa = PBXBuildFile; fileRef = B475A88B2AF0F4E9005A7B82 /* Hijab1oblong.reality */; };
+		B475A8912AF0F4EA005A7B82 /* Hijab1oval.reality in Resources */ = {isa = PBXBuildFile; fileRef = B475A88C2AF0F4EA005A7B82 /* Hijab1oval.reality */; };
+		B475A8932AF0F534005A7B82 /* Hijab1square.reality in Resources */ = {isa = PBXBuildFile; fileRef = B475A8922AF0F534005A7B82 /* Hijab1square.reality */; };
 		B476F2BA2AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B476F2B92AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel */; };
 		B476F2BE2AE140A8002C7479 /* FacialShapeML.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B476F2BD2AE140A8002C7479 /* FacialShapeML.mlmodel */; };
 		B489EB462AEE25640006786B /* hijab1.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B489EB452AEE25640006786B /* hijab1.usdz */; };
@@ -38,7 +42,6 @@
 		B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainCamera+AR.swift"; sourceTree = "<group>"; };
 		B4349DCA2AEEC9C60031BAA0 /* helmet_blender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = helmet_blender.usdz; sourceTree = "<group>"; };
 		B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHijabModels.swift; sourceTree = "<group>"; };
-		B459A0F72AEE4D5D005B068A /* Hijab1square.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hijab1square.reality; sourceTree = "<group>"; };
 		B464D22F2ADE7E3C00376914 /* Hijabie App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hijabie App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B464D2322ADE7E3C00376914 /* Hijabie_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hijabie_AppApp.swift; sourceTree = "<group>"; };
 		B464D2342ADE7E3C00376914 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +51,11 @@
 		B470CED22AE3A588000CC5ED /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B470CED42AE3A937000CC5ED /* MachineLearningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningController.swift; sourceTree = "<group>"; };
 		B470CED62AE3C41D000CC5ED /* FacialShape.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FacialShape.mlmodel; sourceTree = "<group>"; };
+		B475A8882AF0F4E6005A7B82 /* Hijab1round.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hijab1round.reality; sourceTree = "<group>"; };
+		B475A88A2AF0F4E8005A7B82 /* Hijab1heart.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hijab1heart.reality; sourceTree = "<group>"; };
+		B475A88B2AF0F4E9005A7B82 /* Hijab1oblong.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hijab1oblong.reality; sourceTree = "<group>"; };
+		B475A88C2AF0F4EA005A7B82 /* Hijab1oval.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hijab1oval.reality; sourceTree = "<group>"; };
+		B475A8922AF0F534005A7B82 /* Hijab1square.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hijab1square.reality; sourceTree = "<group>"; };
 		B476F2B92AE13F56002C7479 /* RoundFacialShapeImageClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "RoundFacialShapeImageClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		B476F2BD2AE140A8002C7479 /* FacialShapeML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FacialShapeML.mlmodel; sourceTree = "<group>"; };
 		B489EB452AEE25640006786B /* hijab1.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = hijab1.usdz; sourceTree = "<group>"; };
@@ -80,7 +88,6 @@
 			children = (
 				B4349DCA2AEEC9C60031BAA0 /* helmet_blender.usdz */,
 				B489EB452AEE25640006786B /* hijab1.usdz */,
-				B459A0F72AEE4D5D005B068A /* Hijab1square.reality */,
 			);
 			path = 3DObject;
 			sourceTree = "<group>";
@@ -106,6 +113,8 @@
 		B43D7D8D2AEB78DB00951AD6 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				B4C16D0F2AEF4DCB0032CF5B /* ChooseHijab.swift */,
+				B4C16D112AEF4E260032CF5B /* ButtonTryTutorial.swift */,
 				B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */,
 				B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */,
 				B4C16D152AEF576C0032CF5B /* TutorialView.swift */,
@@ -133,19 +142,18 @@
 		B464D2312ADE7E3C00376914 /* Hijabie App */ = {
 			isa = PBXGroup;
 			children = (
-				B4B97B9A2AF0B159002B460D /* Videos */,
 				B464D2322ADE7E3C00376914 /* Hijabie_AppApp.swift */,
 				B464D2342ADE7E3C00376914 /* ContentView.swift */,
 				B464D2422ADE7FA100376914 /* FaceDetection.swift */,
 				B4D80CAF2AECD87900CCAE9D /* Controller */,
 				B43D7D8A2AEB73F300951AD6 /* OnBoarding */,
 				B43D7D8D2AEB78DB00951AD6 /* MainScreen */,
-				B4C16D0F2AEF4DCB0032CF5B /* ChooseHijab.swift */,
-				B4C16D112AEF4E260032CF5B /* ButtonTryTutorial.swift */,
 				B425697B2AEB9E35001FEC96 /* HijabModels */,
 				B476F2BD2AE140A8002C7479 /* FacialShapeML.mlmodel */,
 				B470CED62AE3C41D000CC5ED /* FacialShape.mlmodel */,
+				B4B97B9A2AF0B159002B460D /* Videos */,
 				B42569742AEB8899001FEC96 /* 3DObject */,
+				B475A8872AF0EBDD005A7B82 /* RealityProject */,
 				B464D2362ADE7E4000376914 /* Assets.xcassets */,
 				B464D2382ADE7E4000376914 /* Preview Content */,
 			);
@@ -160,6 +168,18 @@
 				B464D2392ADE7E4000376914 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B475A8872AF0EBDD005A7B82 /* RealityProject */ = {
+			isa = PBXGroup;
+			children = (
+				B475A88A2AF0F4E8005A7B82 /* Hijab1heart.reality */,
+				B475A8922AF0F534005A7B82 /* Hijab1square.reality */,
+				B475A88B2AF0F4E9005A7B82 /* Hijab1oblong.reality */,
+				B475A88C2AF0F4EA005A7B82 /* Hijab1oval.reality */,
+				B475A8882AF0F4E6005A7B82 /* Hijab1round.reality */,
+			);
+			path = RealityProject;
 			sourceTree = "<group>";
 		};
 		B4B97B9A2AF0B159002B460D /* Videos */ = {
@@ -239,11 +259,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4349DCB2AEEC9C60031BAA0 /* helmet_blender.usdz in Resources */,
-				B459A0F82AEE4D5D005B068A /* Hijab1square.reality in Resources */,
+				B475A88D2AF0F4EA005A7B82 /* Hijab1round.reality in Resources */,
 				B489EB462AEE25640006786B /* hijab1.usdz in Resources */,
+				B475A8902AF0F4EA005A7B82 /* Hijab1oblong.reality in Resources */,
+				B475A8932AF0F534005A7B82 /* Hijab1square.reality in Resources */,
 				B4B97B9C2AF0B17B002B460D /* tutorvideo.mp4 in Resources */,
 				B464D23A2ADE7E4000376914 /* Preview Assets.xcassets in Resources */,
+				B475A88F2AF0F4EA005A7B82 /* Hijab1heart.reality in Resources */,
 				B464D2372ADE7E4000376914 /* Assets.xcassets in Resources */,
+				B475A8912AF0F4EA005A7B82 /* Hijab1oval.reality in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
