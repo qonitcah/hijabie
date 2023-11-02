@@ -54,8 +54,12 @@ struct OnBoarding2View: View {
                     }
                     .padding(.bottom, 67)
                     
-                    Image("facescan")
-                        .padding(.bottom, 150)
+                    Circle()
+                        .inset(by: 7)
+                        .stroke(Color.white, lineWidth: 3)
+                        .frame(width: 329, height: 329)
+                        .padding(.bottom, 140)
+                    
                     
                     
                     ZStack(alignment: .leading){

@@ -51,14 +51,8 @@ struct ButtonTryTutorial: View {
                         .fontWeight(.semibold)
                 }
             }
-            .padding()
         }
-//        .sheet(isPresented: $doIWantThisViewToShow){
-//            if doIWantThisViewToShow{
-//                MainCamera_AR(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index)
-//                
-//            }
-//        }
+
         
     }
 }

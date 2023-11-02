@@ -24,7 +24,7 @@ struct TutorialView: View {
                 
                 namaModel(models: $models, index: $index)
                 
-                ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index)
+                ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models)
             }
             .padding(.top, 585)
         }
