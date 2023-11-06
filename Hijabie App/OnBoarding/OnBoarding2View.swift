@@ -20,78 +20,80 @@ struct OnBoarding2View: View {
                 OnBoarding3View()
                 
             } else {
-            ZStack{
-                
-                FaceDetection(faceData: faceData)
-                
-                GeometryReader { geometry in
-                    Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]), startPoint: .bottom, endPoint: .top))
-                        .frame(width: geometry.size.width, height: geometry.size.height / 2)
-                        .position(x: geometry.size.width / 2, y: geometry.size.height)
-                    Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]), startPoint: .top, endPoint: .center))
-                        .frame(width: geometry.size.width, height: geometry.size.height / 2)
-                        .position(x: geometry.size.width / 2, y: geometry.size.height / 5)
-                }
-                
-                VStack{
-                    Text("Face Scanning")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .padding(.bottom, 67)
-                        .padding(.top, -20)
-                        .foregroundColor(.white)
+                ZStack{
                     
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 20)
-                            .frame(width: 232.0, height: 34.0)
-                            .opacity(0.5)
+                    FaceDetection(faceData: faceData)
+                    
+                    GeometryReader { geometry in
+                        Rectangle()
+                            .fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]), startPoint: .bottom, endPoint: .top))
+                            .frame(width: geometry.size.width, height: geometry.size.height / 2)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height)
+                        Rectangle()
+                            .fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]), startPoint: .top, endPoint: .center))
+                            .frame(width: geometry.size.width, height: geometry.size.height / 2)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height / 5)
+                    }
+                    
+                    VStack{
+                        Text("Face Scanning")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .padding(.top, 60)
+                            .foregroundColor(.white)
+                        
+                        Spacer()
+                        
                         Text("Identifying your face..")
                             .fontWeight(/*@START_MENU_TOKEN@*/.light/*@END_MENU_TOKEN@*/)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.white)
                             .font(.custom("SF Pro Text", size: 20))
-                    }
-                    .padding(.bottom, 67)
-                    
-                    Circle()
-                        .inset(by: 7)
-                        .stroke(Color.white, lineWidth: 3)
-                        .frame(width: 329, height: 329)
-                        .padding(.bottom, 140)
-                    
-                    
-                    
-                    ZStack(alignment: .leading){
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .fill(Color(.systemGray))
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color(.black))
-                            .frame(width: drawingWidth ? 329 : 0, alignment: .leading)
-                            .animation(.easeInOut(duration: 2.5).repeatForever(autoreverses: false), value: drawingWidth)
+                            .padding()
+                            .background(.ultraThinMaterial,
+                                        in: RoundedRectangle(cornerRadius: 50, style: .continuous))
                         
-                    }
-                    .frame(width: 329, height: 7)
-                    .onAppear(){
-                        drawingWidth.toggle()
-                    }
-                }
-            
-        }
-    }
-            }
-        .ignoresSafeArea()
-        .onAppear {
-                  
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                   
-                        withAnimation {
-                            self.isActive = true
+                        Spacer()
+                        
+                        Circle()
+                            .inset(by: 7)
+                            .stroke(Color.white, lineWidth: 3)
+                            .frame(width: 329, height: 329)
+                            
+                        Spacer()
+                        
+                        
+                        ZStack(alignment: .leading){
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .fill(Color(.systemGray))
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color(.black))
+                                .frame(width: drawingWidth ? 329 : 0, alignment: .leading)
+                                .animation(.easeInOut(duration: 2.5).repeatForever(autoreverses: false), value: drawingWidth)
+                            
+                        }
+                        .frame(width: 329, height: 7)
+                        .onAppear(){
+                            drawingWidth.toggle()
                         }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.bottom, 110)
+                    
+                }
             }
-
         }
+        .ignoresSafeArea()
+        .onAppear {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                
+                withAnimation {
+                    self.isActive = true
+                }
+            }
+        }
+        
+    }
 }
 
 

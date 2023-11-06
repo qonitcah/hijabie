@@ -16,50 +16,55 @@ struct OnBoarding3View: View {
             ZStack{
                 
                 FaceDetection(faceData: faceData)
-                
-                Rectangle()
-                    .fill(Color.black)
-                    .opacity(0.5)
+                    .blur(radius: 5.0)
                 
                 VStack{
                     Text("The Result")
                         .font(.title2)
                         .fontWeight(.bold)
-                        .padding(.bottom, 67)
                         .foregroundColor(.white)
+                        .padding(.top, 60)
                     
+                    Spacer()
                     
                     Text("Your facial shape\nis likely to identified as..")
                         .fontWeight(/*@START_MENU_TOKEN@*/.light/*@END_MENU_TOKEN@*/)
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.white)
-                        .padding(.bottom, 20)
                         .font(.custom("SF Pro Text", size: 20))
+                        
+                    
+                    Spacer()
                     
                     Text(faceData.faceLabel)
+                        .fontWeight(.bold)
                         .font(.custom("SF Compact", size: 38))
                         .foregroundColor(.white)
-                        .fontWeight(.heavy)
-                        .padding(.bottom, 54)
+                        
+                        
+                        
+                        
+                    Spacer()
                     
                     Image("ceklis")
-                        .padding(.bottom, 100)
+                        .padding(.bottom, 178)
+                
                     
-                    NavigationLink(destination: MainCamera_AR(faceData: faceData)){
+                    NavigationLink(destination: MainHijabModels(faceData: faceData) /*MainCamera_AR(faceData: faceData)*/){
                     Text("Next")
                         .frame(width: 309.0, height: 50.0)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                         .background(Color.white)
                         .clipShape(Capsule(style: .continuous))
                         .foregroundStyle(Color.black)
+                        .padding(.bottom, 80)
                     }
                 }
-                .padding(.bottom, 40)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
             }
             .ignoresSafeArea()
         }
         .navigationBarBackButtonHidden()
-        
     }
 }
 

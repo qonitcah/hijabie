@@ -9,8 +9,8 @@ import SwiftUI
 import RealityKit
 
 struct ContentView: View {
+//    @ObservedObject var faceData: FaceShapeData
     @StateObject var faceData: FaceShapeData = FaceShapeData()
-
     
     var body: some View {
         ZStack {

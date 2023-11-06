@@ -39,8 +39,8 @@ struct ChooseHijabModel: View {
                         .padding()
                         .frame(width: CGFloat(filters.count) * 120)
                     }
-                    namaModel(models: $models, index: $index)
-                        .frame(width: geometry.size.width)
+//                    namaModel(models: $models, index: $index)
+//                        .frame(width: geometry.size.width)
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .bottom)
                 .padding(.bottom, 30)
@@ -61,12 +61,12 @@ struct FilterItemView: View {
             Image("baju") // Replace with your filter image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 100, height: 100)
+                .frame(width: 86, height: 86)
                 .shadow(color: .black, radius: 50, x: 5.0, y: 10.0)
-                .cornerRadius(100)
+                .cornerRadius(86)
                 .shadow(color: .black, radius: 5, x: 5.0, y: 5.0)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 100)
+                    RoundedRectangle(cornerRadius: 86)
                         .stroke(Color.red, lineWidth: isSelected ? 4 : 0)
                 )
         }
@@ -79,6 +79,8 @@ struct namaModel: View {
     
     var body: some View {
         HStack{
+            
+            
             Text("Hijab Model:")
             
             Text(models[index].name)

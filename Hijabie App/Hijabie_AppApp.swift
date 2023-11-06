@@ -14,6 +14,7 @@ struct Hijabie_AppApp: App {
         WindowGroup {
 
             OnBoarding1View()
+            
 
         }
     }

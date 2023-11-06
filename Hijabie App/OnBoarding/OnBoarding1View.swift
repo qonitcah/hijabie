@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnBoarding1View: View {
+
     var body: some View {
         NavigationView{
             ZStack{
@@ -64,6 +65,6 @@ struct OnBoarding1View: View {
     }
 }
 
-#Preview {
-    OnBoarding1View()
-}
+//#Preview {
+//    OnBoarding1View()
+//}

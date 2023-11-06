@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B425697F2AEB9E7C001FEC96 /* MainCamera+AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */; };
+		B425697F2AEB9E7C001FEC96 /* Camera+AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425697E2AEB9E7C001FEC96 /* Camera+AR.swift */; };
 		B4349DCB2AEEC9C60031BAA0 /* helmet_blender.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B4349DCA2AEEC9C60031BAA0 /* helmet_blender.usdz */; };
 		B43D7D8C2AEB78BF00951AD6 /* MainHijabModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */; };
 		B464D2332ADE7E3C00376914 /* Hijabie_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B464D2322ADE7E3C00376914 /* Hijabie_AppApp.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainCamera+AR.swift"; sourceTree = "<group>"; };
+		B425697E2AEB9E7C001FEC96 /* Camera+AR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Camera+AR.swift"; sourceTree = "<group>"; };
 		B4349DCA2AEEC9C60031BAA0 /* helmet_blender.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = helmet_blender.usdz; sourceTree = "<group>"; };
 		B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHijabModels.swift; sourceTree = "<group>"; };
 		B464D22F2ADE7E3C00376914 /* Hijabie App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hijabie App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,12 +113,12 @@
 		B43D7D8D2AEB78DB00951AD6 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				B425697E2AEB9E7C001FEC96 /* Camera+AR.swift */,
+				B4B97B982AF0A8F2002B460D /* ProfileView.swift */,
 				B4C16D0F2AEF4DCB0032CF5B /* ChooseHijab.swift */,
 				B4C16D112AEF4E260032CF5B /* ButtonTryTutorial.swift */,
 				B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */,
-				B425697E2AEB9E7C001FEC96 /* MainCamera+AR.swift */,
 				B4C16D152AEF576C0032CF5B /* TutorialView.swift */,
-				B4B97B982AF0A8F2002B460D /* ProfileView.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 				B4C16D122AEF4E260032CF5B /* ButtonTryTutorial.swift in Sources */,
 				B43D7D8C2AEB78BF00951AD6 /* MainHijabModels.swift in Sources */,
 				B464D2352ADE7E3C00376914 /* ContentView.swift in Sources */,
-				B425697F2AEB9E7C001FEC96 /* MainCamera+AR.swift in Sources */,
+				B425697F2AEB9E7C001FEC96 /* Camera+AR.swift in Sources */,
 				B4C16D102AEF4DCB0032CF5B /* ChooseHijab.swift in Sources */,
 				B464D2332ADE7E3C00376914 /* Hijabie_AppApp.swift in Sources */,
 				B4F0BF972AE55D1D00B4D918 /* OnBoarding2View.swift in Sources */,
