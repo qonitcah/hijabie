@@ -36,7 +36,19 @@ struct MainHijabModels: View {
     @State private var selectedFilterIndex: Int = 0
     @State var selectedTab = 0
     @ObservedObject var faceData: FaceShapeData
+    @State var degree = 90.0
     
+    
+    let array : [MyColors] =  [MyColors(id: 0, name: "RED", color: Color.red),
+                               MyColors(id: 1, name: "ORANGE",color: Color.orange),
+                               MyColors(id: 2, name: "YELLOW", color: Color.yellow),
+                               MyColors(id: 3, name: "GREEN", color: Color.green),
+                               MyColors(id: 4, name: "BLUE", color: Color.blue),
+                               MyColors(id: 5, name: "BLACK", color: Color.black),
+                               MyColors(id: 6, name: "GRAY", color: Color.gray),
+                               MyColors(id: 7, name: "PINK", color: Color.pink),
+                               MyColors(id: 8, name: "BROWN", color: Color.brown),
+                               MyColors(id: 9, name: "LILAC", color: Color.purple)]
     
     
     var body: some View {
@@ -51,7 +63,12 @@ struct MainHijabModels: View {
                                 .background(Material.bar)
                         }
                     
-                    VStack{
+                    ZStack{
+                        
+                        ColorWheelPicker(degree: $degree, array: array, circleSize: 393)
+                            .offset(y: 350)
+//                            .shadow(color: .white, radius: 2, x: 0, y: 0)
+                        
                         ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models)
                     }
                 }
@@ -67,7 +84,7 @@ struct MainHijabModels: View {
                 Button{
                     selectedTab = item.rawValue
                 } label: {
-                   
+                    
                     TabBarView(selectedTab: $selectedTab).previewDisplayName("TabBarView")
                     
                 }
@@ -75,7 +92,7 @@ struct MainHijabModels: View {
             .padding(.leading, 75)
             .frame(height: 70)
             .background(Color(.systemGray6))
-           
+            
             
         }
         .navigationBarBackButtonHidden()
@@ -83,7 +100,11 @@ struct MainHijabModels: View {
 }
 
 
-
+struct MyColors : Identifiable {
+    let id: Int
+    let name: String
+    let color: Color
+}
 
 
 struct Model : Identifiable {
@@ -122,8 +143,8 @@ struct TabBarView: View {
                 }
             }
             .padding()
-//            .background(Color(.systemGray6))
-//            .cornerRadius(25)
+            //            .background(Color(.systemGray6))
+            //            .cornerRadius(25)
             
         }
     }

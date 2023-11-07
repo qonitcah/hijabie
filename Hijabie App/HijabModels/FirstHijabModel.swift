@@ -21,7 +21,7 @@ import ARKit
 struct ARViewContainer: UIViewRepresentable {
     
     @ObservedObject var faceData: FaceShapeData
-    @State private var selectedObject = 0
+//    @State private var selectedObject = 0
     
     
     func makeUIView(context: Context) -> ARView {

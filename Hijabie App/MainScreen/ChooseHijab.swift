@@ -19,10 +19,11 @@ struct ChooseHijabModel: View {
     var body: some View {
         
             GeometryReader { geometry in
-                VStack{
+
                 ScrollView(.horizontal, showsIndicators: false) {
                     
                         HStack(spacing: 20) {
+                            Spacer().frame(width: 180)
                             ForEach(0..<filters.count, id: \.self) { filterIndex in
                                 FilterItemView(
                                     filterName: filters[filterIndex],
@@ -39,14 +40,14 @@ struct ChooseHijabModel: View {
                         .padding()
                         .frame(width: CGFloat(filters.count) * 120)
                     }
-//                    namaModel(models: $models, index: $index)
-//                        .frame(width: geometry.size.width)
-                }
+
+                
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .bottom)
                 .padding(.bottom, 30)
             }
-            
+        
         }
+        
     }
 
 
