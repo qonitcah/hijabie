@@ -18,7 +18,7 @@ struct ColorWheelPicker: View{
     @State var direction = Direction.left
     @State var chosenIndex = 5
     @Binding var degree : Double
-    @State var label:String = "HIJAB COLOR"
+    @State var label: String = "HIJAB COLOR"
     
     let array : [MyColors]
     let circleSize : Double

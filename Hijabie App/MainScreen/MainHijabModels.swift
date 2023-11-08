@@ -37,7 +37,8 @@ struct MainHijabModels: View {
     @State var selectedTab = 0
     @ObservedObject var faceData: FaceShapeData
     @State var degree = 90.0
-    
+    @State var isAppear: Bool = true
+    @State var isPlaying: Bool = false
     
     let array : [MyColors] =  [MyColors(id: 0, name: "RED", color: Color.red),
                                MyColors(id: 1, name: "ORANGE",color: Color.orange),
@@ -67,15 +68,35 @@ struct MainHijabModels: View {
                         
                         ColorWheelPicker(degree: $degree, array: array, circleSize: 393)
                             .offset(y: 350)
-//                            .shadow(color: .white, radius: 2, x: 0, y: 0)
+                        //                            .shadow(color: .white, radius: 2, x: 0, y: 0)
                         
-                        ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models)
+                        ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models, isAppear: $isAppear)
+                            .opacity(isAppear ? 1 : 0)
+                        
+                        
                     }
+                    
+                    
+                    Button {
+                        isAppear.toggle()
+                    } label: {
+                        VStack {
+                            Image(systemName: "chevron.up")
+                                .font(.system(size: 40))
+                            Text("HIJAB MODEL")
+                                .font(.system(size: 17))
+                        }
+                        .foregroundColor(Color.white)
+                        .opacity(isAppear ? 0 : 1)
+                        .padding(.top, 650)
+                    }
+                    
                 }
                 .ignoresSafeArea(.all, edges: .top)
                 .tag(0)
                 
                 TutorialView(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index)
+                    .ignoresSafeArea(.all, edges: .top)
                     .tag(1)
             }
             

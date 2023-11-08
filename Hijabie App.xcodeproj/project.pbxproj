@@ -29,8 +29,8 @@
 		B489EB462AEE25640006786B /* hijab1.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B489EB452AEE25640006786B /* hijab1.usdz */; };
 		B48F8B102AE57095005208B7 /* OnBoarding3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48F8B0F2AE57095005208B7 /* OnBoarding3View.swift */; };
 		B4B97B992AF0A8F2002B460D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B97B982AF0A8F2002B460D /* ProfileView.swift */; };
-		B4B97B9C2AF0B17B002B460D /* tutorvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B4B97B9B2AF0B17B002B460D /* tutorvideo.mp4 */; };
-		B4C16D102AEF4DCB0032CF5B /* ChooseHijab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C16D0F2AEF4DCB0032CF5B /* ChooseHijab.swift */; };
+		B4B97B9C2AF0B17B002B460D /* tutor1video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B4B97B9B2AF0B17B002B460D /* tutor1video.mp4 */; };
+		B4C16D102AEF4DCB0032CF5B /* ChooseHijabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C16D0F2AEF4DCB0032CF5B /* ChooseHijabModel.swift */; };
 		B4C16D162AEF576C0032CF5B /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C16D152AEF576C0032CF5B /* TutorialView.swift */; };
 		B4C5E93B2AE661DF00080A5D /* FirstHijabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C5E93A2AE661DF00080A5D /* FirstHijabModel.swift */; };
 		B4C5E93D2AE6621000080A5D /* AugementedRealityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C5E93C2AE6621000080A5D /* AugementedRealityController.swift */; };
@@ -62,8 +62,8 @@
 		B489EB452AEE25640006786B /* hijab1.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = hijab1.usdz; sourceTree = "<group>"; };
 		B48F8B0F2AE57095005208B7 /* OnBoarding3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding3View.swift; sourceTree = "<group>"; };
 		B4B97B982AF0A8F2002B460D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		B4B97B9B2AF0B17B002B460D /* tutorvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorvideo.mp4; sourceTree = "<group>"; };
-		B4C16D0F2AEF4DCB0032CF5B /* ChooseHijab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseHijab.swift; sourceTree = "<group>"; };
+		B4B97B9B2AF0B17B002B460D /* tutor1video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutor1video.mp4; sourceTree = "<group>"; };
+		B4C16D0F2AEF4DCB0032CF5B /* ChooseHijabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseHijabModel.swift; sourceTree = "<group>"; };
 		B4C16D152AEF576C0032CF5B /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		B4C5E93A2AE661DF00080A5D /* FirstHijabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstHijabModel.swift; sourceTree = "<group>"; };
 		B4C5E93C2AE6621000080A5D /* AugementedRealityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugementedRealityController.swift; sourceTree = "<group>"; };
@@ -115,10 +115,10 @@
 			children = (
 				B425697E2AEB9E7C001FEC96 /* Camera+AR.swift */,
 				B4B97B982AF0A8F2002B460D /* ProfileView.swift */,
-				B4C16D0F2AEF4DCB0032CF5B /* ChooseHijab.swift */,
-				B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */,
+				B4C16D0F2AEF4DCB0032CF5B /* ChooseHijabModel.swift */,
 				B4C16D152AEF576C0032CF5B /* TutorialView.swift */,
 				B40759152AF9256E00305D57 /* ColorWheelPicker.swift */,
+				B43D7D8B2AEB78BF00951AD6 /* MainHijabModels.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 		B4B97B9A2AF0B159002B460D /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				B4B97B9B2AF0B17B002B460D /* tutorvideo.mp4 */,
+				B4B97B9B2AF0B17B002B460D /* tutor1video.mp4 */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -263,7 +263,7 @@
 				B489EB462AEE25640006786B /* hijab1.usdz in Resources */,
 				B475A8902AF0F4EA005A7B82 /* Hijab1oblong.reality in Resources */,
 				B475A8932AF0F534005A7B82 /* Hijab1square.reality in Resources */,
-				B4B97B9C2AF0B17B002B460D /* tutorvideo.mp4 in Resources */,
+				B4B97B9C2AF0B17B002B460D /* tutor1video.mp4 in Resources */,
 				B464D23A2ADE7E4000376914 /* Preview Assets.xcassets in Resources */,
 				B475A88F2AF0F4EA005A7B82 /* Hijab1heart.reality in Resources */,
 				B464D2372ADE7E4000376914 /* Assets.xcassets in Resources */,
@@ -287,7 +287,7 @@
 				B43D7D8C2AEB78BF00951AD6 /* MainHijabModels.swift in Sources */,
 				B464D2352ADE7E3C00376914 /* ContentView.swift in Sources */,
 				B425697F2AEB9E7C001FEC96 /* Camera+AR.swift in Sources */,
-				B4C16D102AEF4DCB0032CF5B /* ChooseHijab.swift in Sources */,
+				B4C16D102AEF4DCB0032CF5B /* ChooseHijabModel.swift in Sources */,
 				B40759162AF9256E00305D57 /* ColorWheelPicker.swift in Sources */,
 				B464D2332ADE7E3C00376914 /* Hijabie_AppApp.swift in Sources */,
 				B4F0BF972AE55D1D00B4D918 /* OnBoarding2View.swift in Sources */,

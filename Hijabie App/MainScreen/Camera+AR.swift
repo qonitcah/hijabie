@@ -19,8 +19,7 @@ struct MainCamera_AR: View {
     @Binding var models: [Model]
     @Binding var index: Int
     @Binding var selectedFilterIndex: Int
-//    @State var index = 0
-//    @State private var selectedFilterIndex: Int = 0
+    @Binding var isAppear: Bool
     @ObservedObject var faceData: FaceShapeData
     
     
@@ -31,7 +30,7 @@ struct MainCamera_AR: View {
                 
                 ARViewContainer(faceData: faceData)
                 
-                ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models)
+                ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models, isAppear: $isAppear)
                 
             }
             .ignoresSafeArea()

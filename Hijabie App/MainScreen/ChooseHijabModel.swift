@@ -13,42 +13,57 @@ struct ChooseHijabModel: View {
     @Binding var selectedFilterIndex: Int
     @Binding var index: Int
     @Binding var models: [Model]
+    @Binding var isAppear: Bool
     
     let filters = ["Filter 1", "Filter 2", "Filter 3", "Filter 4", "Filter 5"]
     
     var body: some View {
         
-            GeometryReader { geometry in
-
+        
+        
+        GeometryReader { geometry in
+            
+            VStack{
+                Button {
+                    isAppear.toggle()
+                } label: {
+                    Image(systemName: "chevron.down")
+                        .font(.system(size: 40))
+                        .foregroundColor(Color.white)
+                }
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     
-                        HStack(spacing: 20) {
-                            Spacer().frame(width: 180)
-                            ForEach(0..<filters.count, id: \.self) { filterIndex in
-                                FilterItemView(
-                                    filterName: filters[filterIndex],
-                                    isSelected: filterIndex == selectedFilterIndex
-                                )
-                                .onTapGesture {
-                                    withAnimation {
-                                        selectedFilterIndex = filterIndex
-                                        index = filterIndex
-                                    }
+                    HStack(spacing: 20) {
+                        Spacer().frame(width: 180)
+                        ForEach(0..<filters.count, id: \.self) { filterIndex in
+                            FilterItemView(
+                                filterName: filters[filterIndex],
+                                isSelected: filterIndex == selectedFilterIndex
+                            )
+                            .onTapGesture {
+                                withAnimation {
+                                    selectedFilterIndex = filterIndex
+                                    index = filterIndex
                                 }
                             }
                         }
-                        .padding()
-                        .frame(width: CGFloat(filters.count) * 120)
                     }
-
+                    .padding()
+                    .frame(width: CGFloat(filters.count) * 120)
+                }
                 
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .bottom)
-                .padding(.bottom, 30)
+                
             }
-        
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 30)
+            
+            
         }
-        
     }
+    
+}
+
 
 
 
