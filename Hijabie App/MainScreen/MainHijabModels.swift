@@ -66,9 +66,9 @@ struct MainHijabModels: View {
                     
                     ZStack{
                         
-                        ColorWheelPicker(degree: $degree, array: array, circleSize: 393)
-                            .offset(y: 350)
-                        //                            .shadow(color: .white, radius: 2, x: 0, y: 0)
+//                        ColorWheelPicker(degree: $degree, array: array, circleSize: 393)
+//                            .offset(y: 350)
+                        
                         
                         ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models, isAppear: $isAppear)
                             .opacity(isAppear ? 1 : 0)
@@ -76,9 +76,10 @@ struct MainHijabModels: View {
                         
                     }
                     
-                    
                     Button {
-                        isAppear.toggle()
+                        withAnimation(.spring) {
+                            isAppear.toggle()
+                        }
                     } label: {
                         VStack {
                             Image(systemName: "chevron.up")
@@ -88,7 +89,9 @@ struct MainHijabModels: View {
                         }
                         .foregroundColor(Color.white)
                         .opacity(isAppear ? 0 : 1)
-                        .padding(.top, 650)
+//                        .rotationEffect(.degrees(isAppear ? 90 : 0))
+//                        .scaleEffect(isAppear ? 1.5 : 1)
+                        .padding(.top, 675)
                     }
                     
                 }
@@ -98,6 +101,7 @@ struct MainHijabModels: View {
                 TutorialView(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index)
                     .ignoresSafeArea(.all, edges: .top)
                     .tag(1)
+                
             }
             
             
@@ -129,7 +133,6 @@ struct MyColors : Identifiable {
 
 
 struct Model : Identifiable {
-    
     var id : Int
     var name : String
     var modelName : String

@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUI
 
+
+
+
+
+
+
 struct ChooseHijabModel: View {
     
     @Binding var selectedFilterIndex: Int
@@ -29,7 +35,7 @@ struct ChooseHijabModel: View {
                 } label: {
                     Image(systemName: "chevron.down")
                         .font(.system(size: 40))
-                        .foregroundColor(Color.white)
+//                        .foregroundColor(Color.white)
                 }
                 
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -38,9 +44,10 @@ struct ChooseHijabModel: View {
                         Spacer().frame(width: 180)
                         ForEach(0..<filters.count, id: \.self) { filterIndex in
                             FilterItemView(
-                                filterName: filters[filterIndex],
+//                                filterName: filters[filterIndex],
                                 isSelected: filterIndex == selectedFilterIndex
                             )
+                            
                             .onTapGesture {
                                 withAnimation {
                                     selectedFilterIndex = filterIndex
@@ -56,7 +63,7 @@ struct ChooseHijabModel: View {
                 
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .bottom)
-            .padding(.bottom, 30)
+            .padding(.bottom, 20)
             
             
         }
@@ -69,40 +76,48 @@ struct ChooseHijabModel: View {
 
 
 struct FilterItemView: View {
-    let filterName: String
+    
+    
     let isSelected: Bool
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image("baju") // Replace with your filter image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 86, height: 86)
-                .shadow(color: .black, radius: 50, x: 5.0, y: 10.0)
-                .cornerRadius(86)
-                .shadow(color: .black, radius: 5, x: 5.0, y: 5.0)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 86)
-                        .stroke(Color.red, lineWidth: isSelected ? 4 : 0)
-                )
+            Button(action: {
+                
+                
+                
+            }, label: {
+                Image("baju") // Replace with your filter image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 86, height: 86)
+                    .shadow(color: .black, radius: 50, x: 5.0, y: 10.0)
+                    .cornerRadius(86)
+                    .shadow(color: .black, radius: 5, x: 5.0, y: 5.0)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 86)
+                            .stroke(Color.red, lineWidth: isSelected ? 4 : 0)
+                    )
+            })
+            
         }
     }
 }
 
-struct namaModel: View {
-    @Binding var models: [Model]
-    @Binding var index: Int
-    
-    var body: some View {
-        HStack{
-            
-            
-            Text("Hijab Model:")
-            
-            Text(models[index].name)
-                .bold()
-        }
-        .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.white).frame(width: 250,height: 28).opacity(0.7))
-        .foregroundColor(.black)
-    }
-}
+//struct namaModel: View {
+//    @Binding var models: [Model]
+//    @Binding var index: Int
+//    
+//    var body: some View {
+//        HStack{
+//            
+//            
+//            Text("Hijab Model:")
+//            
+//            Text(models[index].name)
+//                .bold()
+//        }
+//        .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.white).frame(width: 250,height: 28).opacity(0.7))
+//        .foregroundColor(.black)
+//    }
+//}
