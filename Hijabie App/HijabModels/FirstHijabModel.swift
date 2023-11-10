@@ -18,7 +18,7 @@ import ARKit
 //
 //var object = ["Hijab1oval", "Hijab1square", "Hijab1round", "Hijab1heart", "Hijab1oblong"]
 
-struct ARViewContainer: UIViewRepresentable {
+struct FirstHijabModel: UIViewRepresentable {
     
     @ObservedObject var faceData: FaceShapeData
 //    @State private var selectedObject = 0

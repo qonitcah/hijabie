@@ -20,8 +20,10 @@ struct ChooseHijabModel: View {
     @Binding var index: Int
     @Binding var models: [Model]
     @Binding var isAppear: Bool
+    @Binding var selectedHijab : Int
     
     let filters = ["Filter 1", "Filter 2", "Filter 3", "Filter 4", "Filter 5"]
+    let hijabModels = ["firstHijab","secondHijab","firstHijab", "firstHijab", "firstHijab"] // nama - nama image hijab
     
     var body: some View {
         
@@ -35,29 +37,34 @@ struct ChooseHijabModel: View {
                 } label: {
                     Image(systemName: "chevron.down")
                         .font(.system(size: 40))
-//                        .foregroundColor(Color.white)
+                    //                        .foregroundColor(Color.white)
                 }
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     
                     HStack(spacing: 20) {
-                        Spacer().frame(width: 180)
-                        ForEach(0..<filters.count, id: \.self) { filterIndex in
-                            FilterItemView(
-//                                filterName: filters[filterIndex],
-                                isSelected: filterIndex == selectedFilterIndex
-                            )
+                        Spacer().frame(width: 180 * CGFloat(selectedHijab))
+                        
+                        ForEach(0..<hijabModels.count, id: \.self) { filterIndex in
                             
+                            FilterItemView(
+                                imageName: hijabModels[filterIndex],
+                                isSelected: filterIndex == selectedHijab
+                            )
                             .onTapGesture {
                                 withAnimation {
-                                    selectedFilterIndex = filterIndex
+                                    selectedHijab = filterIndex
                                     index = filterIndex
+//                                    selectedHijab = filterIndex
+                                    
+                                    let _ = print(selectedHijab)
+                                    let _ = print(filterIndex)
                                 }
                             }
                         }
                     }
                     .padding()
-                    .frame(width: CGFloat(filters.count) * 120)
+                    .frame(width: CGFloat(hijabModels.count) * 120)
                 }
                 
                 
@@ -78,16 +85,14 @@ struct ChooseHijabModel: View {
 struct FilterItemView: View {
     
     
+    
+    let imageName:String
     let isSelected: Bool
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Button(action: {
-                
-                
-                
-            }, label: {
-                Image("baju") // Replace with your filter image
+           
+                Image(imageName) // Replace with your filter image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 86, height: 86)
@@ -98,22 +103,22 @@ struct FilterItemView: View {
                         RoundedRectangle(cornerRadius: 86)
                             .stroke(Color.red, lineWidth: isSelected ? 4 : 0)
                     )
-            })
+            }
             
         }
     }
-}
+
 
 //struct namaModel: View {
 //    @Binding var models: [Model]
 //    @Binding var index: Int
-//    
+//
 //    var body: some View {
 //        HStack{
-//            
-//            
+//
+//
 //            Text("Hijab Model:")
-//            
+//
 //            Text(models[index].name)
 //                .bold()
 //        }

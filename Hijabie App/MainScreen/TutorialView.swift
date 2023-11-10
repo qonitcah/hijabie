@@ -26,6 +26,7 @@ struct TutorialView: View {
     @State var videos: [Videos] = [
         Videos(id: 0, name: "tutor1video", step1: "", step2: "", step3: "", step4: "", step5: "", step6: "", step7: ""),
         Videos(id: 1, name: "tutor1video", step1: "", step2: "", step3: "", step4: "", step5: "", step6: "", step7: "")]
+    @State var chosenVideo : Videos?
     
     @State var isStepSelected: Int = 0
     
@@ -67,9 +68,9 @@ struct TutorialView: View {
             
             StepTutorialButton(videos: $videos, stepIndex: $stepIndex, selectedStepIndex: $selectedStepIndex, isStepSelected: $isStepSelected)
             
-            ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models, isAppear: $isAppear)
-                .opacity(/*isPlaying ? 0 : true || */isAppear ? 1 : 0)
-//                .frame(width: 600)
+//            ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models, isAppear: $isAppear, selectedHijab: <#Binding<String>#>)
+//                .opacity(/*isPlaying ? 0 : true || */isAppear ? 1 : 0)
+////                .frame(width: 600)
             
             Spacer()
             

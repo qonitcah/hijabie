@@ -16,7 +16,7 @@ struct ContentView: View {
         ZStack {
 //        FaceDetection(faceData: faceData)
 //            Text(faceData.faceLabel)
-            ARViewContainer(faceData: faceData)
+            FirstHijabModel(faceData: faceData)
             
             
         }

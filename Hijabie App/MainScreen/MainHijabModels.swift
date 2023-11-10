@@ -32,6 +32,9 @@ struct MainHijabModels: View {
         Model(id: 2,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "3"),
         Model(id: 3,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "4"),
         Model(id: 4,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "5")]
+    
+    @State private var selectedHijab : Int = 0
+    
     @State var index = 0
     @State private var selectedFilterIndex: Int = 0
     @State var selectedTab = 0
@@ -51,18 +54,23 @@ struct MainHijabModels: View {
                                MyColors(id: 8, name: "BROWN", color: Color.brown),
                                MyColors(id: 9, name: "LILAC", color: Color.purple)]
     
+    let hijabModels = ["firstHijab","secondHijab","firstHijab"] // nama - nama image hijab
     
     var body: some View {
         ZStack(alignment: .bottom){
             TabView(selection: $selectedTab) {
                 ZStack{
                     
-                    ARViewContainer(faceData: faceData)
-                        .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
-                            Color.clear
-                                .frame(height: 0)
-                                .background(Material.bar)
-                        }
+                    // conditional untuk ar model view
+                    if (selectedHijab == 0){
+                        FirstHijabModel(faceData: faceData)
+                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                                Color.clear
+                                    .frame(height: 0)
+                                    .background(Material.bar)
+                            }
+                    }
+                    
                     
                     ZStack{
                         
@@ -70,7 +78,7 @@ struct MainHijabModels: View {
 //                            .offset(y: 350)
                         
                         
-                        ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models, isAppear: $isAppear)
+                        ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
                             .opacity(isAppear ? 1 : 0)
                         
                         
