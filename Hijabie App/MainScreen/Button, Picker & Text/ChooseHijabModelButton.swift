@@ -8,12 +8,6 @@
 import Foundation
 import SwiftUI
 
-
-
-
-
-
-
 struct ChooseHijabModel: View {
     
 //    @Binding var selectedFilterIndex: Int
@@ -31,15 +25,16 @@ struct ChooseHijabModel: View {
         
         //        GeometryReader { geometry in
         
+//        VStack{
+//            Button {
+//                isAppear.toggle()
+//            } label: {
+//                Image(systemName: "chevron.down")
+//                    .font(.system(size: 40))
+//                //                        .foregroundColor(Color.white)
+//            }
+        
         VStack{
-            Button {
-                isAppear.toggle()
-            } label: {
-                Image(systemName: "chevron.down")
-                    .font(.system(size: 40))
-                //                        .foregroundColor(Color.white)
-            }
-            
             ScrollView(.horizontal, showsIndicators: false) {
                 
                 HStack(spacing: 20) {
@@ -62,17 +57,14 @@ struct ChooseHijabModel: View {
                         }
                     }
                 }
-                .padding()
+                
                 .frame(width: CGFloat(hijabModels.count) * 120)
+                .padding()
             }
             
             
+            
         }
-        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .bottom)
-        .padding(.bottom, 20)
-        
-        
-        //        }
     }
     
 }
@@ -103,20 +95,3 @@ struct FilterItemView: View {
 }
 
 
-//struct namaModel: View {
-//    @Binding var models: [Model]
-//    @Binding var index: Int
-//
-//    var body: some View {
-//        HStack{
-//
-//
-//            Text("Hijab Model:")
-//
-//            Text(models[index].name)
-//                .bold()
-//        }
-//        .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.white).frame(width: 250,height: 28).opacity(0.7))
-//        .foregroundColor(.black)
-//    }
-//}

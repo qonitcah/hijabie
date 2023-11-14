@@ -28,7 +28,7 @@ struct MainHijabModels: View {
     
     @State var models = [
         Model(id: 0, name: "Pashmina", modelName: "hijab1.usdz", details: "1"),
-        Model(id: 1,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "2"),
+        Model(id: 1,name: "Instant Pashmina", modelName: "helmet_blender.usdz", details: "2"),
         Model(id: 2,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "3"),
         Model(id: 3,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "4"),
         Model(id: 4,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "5")]
@@ -67,7 +67,6 @@ struct MainHijabModels: View {
                     // conditional untuk RealityKit AR model view
                     if (selectedHijab == 0){
                         FirstHijabModel(faceData: faceData)
-//                        SecondHijabModel()
                             .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
                                 Color.clear
                                     .frame(height: 0)
@@ -101,30 +100,37 @@ struct MainHijabModels: View {
                     //                        ColorWheelPicker(degree: $degree, array: array, circleSize: 393)
                     //                            .offset(y: 350)
                     
-                    OnBoarding4View()
+//                    OnBoarding4View()
                     
-                        if (isAppear == false){
-                            
-                                VStack {
-                                    Image(systemName: "chevron.up")
-                                        .font(.system(size: 40))
-                                    Text("HIJAB MODEL")
-                                        .font(.system(size: 17))
-                                }
-                                .foregroundColor(Color.white)
-    //                            .opacity(isAppear ? 0 : 1) //karena opacity cuma ngilangin warna, jadi mendingan pake conditional rendering
-                                .padding(.top, 675)
-                                .onTapGesture {
-                                    isAppear.toggle()
-
-                                
-                            }
-                        }else if (isAppear == true){
-                            ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
-    //                            .opacity(isAppear ? 1 : 0)
-                        }else{
-                            EmptyView()
-                        }
+                    
+                        ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
+                            .position(.init(x: 195, y: 655))
+                        
+                        namaModel(models: $models, index: $index)
+                            .offset(y:340)
+                    
+//                        if (isAppear == false){
+//                            
+//                                VStack {
+//                                    Image(systemName: "chevron.up")
+//                                        .font(.system(size: 40))
+//                                    Text("HIJAB MODEL")
+//                                        .font(.system(size: 17))
+//                                }
+//                                .foregroundColor(Color.white)
+//    //                            .opacity(isAppear ? 0 : 1) //karena opacity cuma ngilangin warna, jadi mendingan pake conditional rendering
+//                                .padding(.top, 675)
+//                                .onTapGesture {
+//                                    isAppear.toggle()
+//
+//                                
+//                            }
+//                        }else if (isAppear == true){
+//                            ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
+//    //                            .opacity(isAppear ? 1 : 0)
+//                        }else{
+//                            EmptyView()
+//                        }
                         //                    }
                         
                         
