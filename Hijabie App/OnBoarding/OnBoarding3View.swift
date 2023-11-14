@@ -50,7 +50,7 @@ struct OnBoarding3View: View {
                         .padding(.bottom, 178)
                 
                     
-                    NavigationLink(destination: MainHijabModels(faceData: faceData) /*MainCamera_AR(faceData: faceData)*/){
+                    NavigationLink(destination: MainHijabModels(faceData: faceData)){
                     Text("Next")
                         .frame(width: 309.0, height: 50.0)
                         .background(Color.white)

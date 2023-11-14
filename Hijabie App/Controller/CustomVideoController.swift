@@ -11,12 +11,19 @@ import AVKit
 
 struct CustomVideoController: UIViewControllerRepresentable{
     var player: AVPlayer
+    let startTime: Double
     
     func makeUIViewController(context: Context) -> some UIViewController {
         let controller = AVPlayerViewController()
         controller.player = player
         controller.showsPlaybackControls = false
         controller.modalPresentationStyle = .fullScreen
+        
+        
+        let cmTime = CMTime(seconds: startTime, preferredTimescale: 1)
+                player.seek(to: cmTime)
+        
+        
         return controller
     }
     

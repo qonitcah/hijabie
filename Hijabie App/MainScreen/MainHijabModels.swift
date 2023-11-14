@@ -36,7 +36,7 @@ struct MainHijabModels: View {
     @State private var selectedHijab : Int = 0
     
     @State var index = 0
-    @State private var selectedFilterIndex: Int = 0
+//    @State private var selectedFilterIndex: Int = 0
     @State var selectedTab = 0
     @ObservedObject var faceData: FaceShapeData
     @State var degree = 90.0
@@ -54,59 +54,86 @@ struct MainHijabModels: View {
                                MyColors(id: 8, name: "BROWN", color: Color.brown),
                                MyColors(id: 9, name: "LILAC", color: Color.purple)]
     
-    let hijabModels = ["firstHijab","secondHijab","firstHijab"] // nama - nama image hijab
     
     var body: some View {
+        
+        
         ZStack(alignment: .bottom){
+            
             TabView(selection: $selectedTab) {
+                
                 ZStack{
-                    
-                    // conditional untuk ar model view
+
+                    // conditional untuk RealityKit AR model view
                     if (selectedHijab == 0){
                         FirstHijabModel(faceData: faceData)
+//                        SecondHijabModel()
                             .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
                                 Color.clear
                                     .frame(height: 0)
                                     .background(Material.bar)
                             }
                     }
-                    
-                    
-                    ZStack{
-                        
-//                        ColorWheelPicker(degree: $degree, array: array, circleSize: 393)
-//                            .offset(y: 350)
-                        
-                        
-                        ChooseHijabModel(selectedFilterIndex: $selectedFilterIndex, index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
-                            .opacity(isAppear ? 1 : 0)
-                        
-                        
+                    else if (selectedHijab == 1){
+                        SecondHijabModel()
+                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                                Color.clear
+                                    .frame(height: 0)
+                                    .background(Material.bar)
+                            }
                     }
+                    else {
+                        ZStack{
+                            Text("Coming Soon")
+                                .font(.system(size: 20, weight: .light))
+                                .foregroundStyle(.white)
+                                .multilineTextAlignment(.center)
+                                .padding()
+                            .background(.ultraThinMaterial)}
+//                        EmptyView()
+                        }
+                        
+                                     
+            
                     
-                    Button {
-                        withAnimation(.spring) {
-                            isAppear.toggle()
+                    //                    ZStack{
+                    
+                    //                        ColorWheelPicker(degree: $degree, array: array, circleSize: 393)
+                    //                            .offset(y: 350)
+                    
+                    OnBoarding4View()
+                    
+                        if (isAppear == false){
+                            
+                                VStack {
+                                    Image(systemName: "chevron.up")
+                                        .font(.system(size: 40))
+                                    Text("HIJAB MODEL")
+                                        .font(.system(size: 17))
+                                }
+                                .foregroundColor(Color.white)
+    //                            .opacity(isAppear ? 0 : 1) //karena opacity cuma ngilangin warna, jadi mendingan pake conditional rendering
+                                .padding(.top, 675)
+                                .onTapGesture {
+                                    isAppear.toggle()
+
+                                
+                            }
+                        }else if (isAppear == true){
+                            ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
+    //                            .opacity(isAppear ? 1 : 0)
+                        }else{
+                            EmptyView()
                         }
-                    } label: {
-                        VStack {
-                            Image(systemName: "chevron.up")
-                                .font(.system(size: 40))
-                            Text("HIJAB MODEL")
-                                .font(.system(size: 17))
-                        }
-                        .foregroundColor(Color.white)
-                        .opacity(isAppear ? 0 : 1)
-//                        .rotationEffect(.degrees(isAppear ? 90 : 0))
-//                        .scaleEffect(isAppear ? 1.5 : 1)
-                        .padding(.top, 675)
-                    }
+                        //                    }
+                        
+                        
                     
                 }
                 .ignoresSafeArea(.all, edges: .top)
                 .tag(0)
                 
-                TutorialView(models: $models, selectedFilterIndex: $selectedFilterIndex, index: $index)
+                TutorialView(models: $models, selectedHijab: $selectedHijab, index: $index)
                     .ignoresSafeArea(.all, edges: .top)
                     .tag(1)
                 
