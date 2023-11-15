@@ -103,11 +103,13 @@ struct MainHijabModels: View {
 //                    OnBoarding4View()
                     
                     
+                    namaModel(models: $models, index: $index)
+                        .offset(y:230)
+                    
                         ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
-                            .position(.init(x: 195, y: 655))
+                            .position(.init(x: 195, y: 685))
                         
-                        namaModel(models: $models, index: $index)
-                            .offset(y:340)
+                        
                     
 //                        if (isAppear == false){
 //                            
@@ -140,7 +142,7 @@ struct MainHijabModels: View {
                 .tag(0)
                 
                 TutorialView(models: $models, selectedHijab: $selectedHijab, index: $index)
-                    .ignoresSafeArea(.all, edges: .top)
+//                    .ignoresSafeArea(.all, edges: .top)
                     .tag(1)
                 
             }

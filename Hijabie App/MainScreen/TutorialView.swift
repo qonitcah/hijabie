@@ -23,8 +23,16 @@ struct TutorialView: View {
         }
         return nil
     }()
-    @State var videos: [Videos] = [
-        Videos(id: 0, name: "tutor1video", step1: "STEP 1\nSatu sisi hijab lebih pendek dari lainnya", step2: "STEP 2\nTarik ke bagian samping kepala,\nlalu sematkan jarum pentul", step3: "STEP 3\nUjung sisa kainnya tarik ke belakang", step4: "STEP 4\nUjung kain yang lebih panjang juga tarik ke belakang", step5: "STEP 5\nAngkat bagian belakang,\n lalu ikat sisi panjang dan pendek", step6: "STEP 6\nSematkan jarum pentul \ndi sisi samping kepala bagian depan", step7: "STEP 7\nTerakhir rapikan pashmina, jadi deh!"),
+    @State var videos = [
+        Videos(id: 0, name: "tutor1video",
+               step1: "STEP 1\nSatu sisi hijab lebih pendek dari lainnya",
+               step2: "STEP 2\nTarik ke bagian samping kepala,\nlalu sematkan jarum pentul",
+               step3: "STEP 3\nUjung sisa kainnya tarik ke belakang",
+               step4: "STEP 4\nUjung kain yang lebih panjang juga tarik ke belakang",
+               step5: "STEP 5\nAngkat bagian belakang,\n lalu ikat sisi panjang dan pendek",
+               step6: "STEP 6\nSematkan jarum pentul \ndi sisi samping kepala bagian depan",
+               step7: "STEP 7\nTerakhir rapikan pashmina, jadi deh!"),
+        
         Videos(id: 1, name: "tutor1video", step1: "", step2: "", step3: "", step4: "", step5: "", step6: "", step7: "")]
     @State var chosenVideo : Videos?
     
@@ -61,19 +69,20 @@ struct TutorialView: View {
                 Spacer()
             }
             
-            
+//            stepDescription(videos: $videos)
+//                .offset(y:67)
             
             StepTutorialButton(videos: $videos, stepIndex: $stepIndex, selectedStepIndex: $selectedStepIndex, isStepSelected: $isStepSelected, player: $player)
+                .position(.init(x: 320, y: 141))
             
-            
-            Spacer()
-            
-            
-            ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
-                .position(.init(x: 280, y: 655))
             
             namaModel(models: $models, index: $index)
-                .offset(y:340)
+                .offset(y:230)
+            
+            ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
+                .position(.init(x: 280, y: 685))
+            
+           
             
             //            if (isAppear == false){
             //
@@ -102,15 +111,15 @@ struct TutorialView: View {
 }
 
 struct Videos : Identifiable {
-    let id: Int
-    let name: String
-    let step1: String
-    let step2: String
-    let step3: String
-    let step4: String
-    let step5: String
-    let step6: String
-    let step7: String
+    var id: Int
+    var name: String
+    var step1: String
+    var step2: String
+    var step3: String
+    var step4: String
+    var step5: String
+    var step6: String
+    var step7: String
 }
 
 //#Preview {

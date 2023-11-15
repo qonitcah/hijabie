@@ -81,13 +81,13 @@ struct FilterItemView: View {
             Image(imageName) // Replace with your filter image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 86, height: 86)
+                .frame(width: 76, height: 76)
                 .shadow(color: .black, radius: 50, x: 5.0, y: 10.0)
                 .cornerRadius(86)
                 .shadow(color: .black, radius: 5, x: 5.0, y: 5.0)
                 .overlay(
                     RoundedRectangle(cornerRadius: 86)
-                        .stroke(Color.red, lineWidth: isSelected ? 4 : 0)
+                        .stroke(Color.white, lineWidth: isSelected ? 4 : 0)
                 )
         }
         

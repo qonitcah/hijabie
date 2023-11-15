@@ -26,101 +26,46 @@ struct StepTutorialButton: View {
         5: CMTime(seconds: 54, preferredTimescale: 1),
         6: CMTime(seconds: 65, preferredTimescale: 1)
         // Add more steps as needed
-     ]
+    ]
     
     var body: some View {
         
-            ScrollViewReader { scrollView in
+        ScrollViewReader { scrollView in
+            
+            ScrollView(.horizontal, showsIndicators: false) {
                 
-                ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 1) {
                     
-                    HStack(spacing: 1) {
+                    ForEach(steps.indices, id: \.self) { index in
                         
-                        ForEach(steps.indices, id: \.self) { index in
-                            
-                                Text(steps[index])
-                                .font(isStepSelected == index ? .system(size: 23, weight: .bold) : .system(size: 17))
-                                    .padding(.horizontal)
-                                    .padding(.vertical)
-                                    .foregroundColor(isStepSelected == index ? .yellow : .white)
-                                    .background(Circle().fill(.black).opacity(0.5).frame(width: isStepSelected == index ? 50 : 30))
-                                    .onTapGesture {
-                                        withAnimation(.interactiveSpring) {
-                                            isStepSelected = index
-                                            
-                                            if let player = player, let time = startTime[index] {
-                                                player.seek(to: time)
-                                            }
-                                        }
+                        Text(steps[index])
+                            .font(isStepSelected == index ? .system(size: 17, weight: .bold) : .system(size: 17))
+                            .padding(.horizontal)
+                            .padding(.vertical)
+                            .foregroundColor(isStepSelected == index ? .white : .black)
+                            .background(Circle().fill(isStepSelected == index ? .black : .white).opacity(0.7).frame(width: 34))
+                            .onTapGesture {
+                                withAnimation(.interactiveSpring) {
+                                    
+                                    isStepSelected = index
+                                    
+                                    if let player = player, let time = startTime[index] {
+                                        player.seek(to: time)
                                     }
-                        }
+                                    
+                                }
+                            }
                     }
-//                    .padding()
-                    .frame(width: CGFloat(steps.count) * 70)
-                    .padding(.top, 400)
+                }
+                //                    .padding()
+                .frame(width: CGFloat(steps.count) * 45)
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 48, style: .continuous))
+                .opacity(0.7)
+//                .padding(.top, 400)
                 
             }
-//            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            //            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        }
     }
-}
-
-//struct StepButtonView: View {
-//    
-//    let imageName:String
-//    let isStepSelected: Bool
-//    
-//    
-//    var body: some View {
-//        ZStack(alignment: .bottom) {
-//            Text(isStepSelected == index ? "\(stepss[index])" : "\(steps[index])")
-//                .font(isStepSelected == index ? .system(size: 19, weight: .medium) : .system(size: 17))
-//                .padding(.horizontal)
-//                .padding(.vertical)
-//                .foregroundColor(isStepSelected == index ? .yellow : .white)
-//                .background(Circle().fill(/*isStepSelected == index ? .white : .clear.black).opacity(0.5))
-//                .onTapGesture {
-//                    withAnimation(.interactiveSpring) {
-//                        isStepSelected = index
-//                    }
-//                }
-//                )
-//        }
-//        
-//    }
-//}
-//struct StepButtonView: View {
-////    @Binding var videos: [Videos]
-////    @Binding var player: AVPlayer?
-//    //    let stepName: String
-//    @Binding var isStepSelected: Int
-//    var steps = ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6", "Step 7"]
-//
-//    var body: some View {
-//
-//        ScrollViewReader { scrollView in
-//            ScrollView(.horizontal, showsIndicators: false) {
-//                HStack {
-//                    ForEach(steps.indices, id: \.self) { index in
-//
-//                        Text(steps[index])
-//                            .font(.subheadline)
-//                            .padding(.horizontal)
-//                            .padding(.vertical)
-//                            .foregroundColor(isStepSelected == index ? .yellow : .white)
-//                            .background(Capsule().stroke(isStepSelected == index ? .white : .clear))
-//                            .onTapGesture {
-//                                withAnimation(.easeInOut) {
-//                                    isStepSelected = index
-//                                }
-//                            }
-//                    }
-//                }
-//            }
-//            .padding()
-//            //            .background(Color(.systemGray6))
-//            //            .cornerRadius(25)
-//
-//        }
-//
-//    }
+    
 }
