@@ -42,6 +42,7 @@ struct MainHijabModels: View {
     @State var degree = 90.0
     @State var isAppear: Bool = true
     @State var isPlaying: Bool = false
+
     
     let array : [MyColors] =  [MyColors(id: 0, name: "RED", color: Color.red),
                                MyColors(id: 1, name: "ORANGE",color: Color.orange),
@@ -104,7 +105,7 @@ struct MainHijabModels: View {
                     
                     
                     namaModel(models: $models, index: $index)
-                        .offset(y:230)
+                        .offset(y:243)
                     
                         ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
                             .position(.init(x: 195, y: 685))

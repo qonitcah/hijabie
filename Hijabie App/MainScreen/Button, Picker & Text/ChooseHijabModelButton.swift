@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ChooseHijabModel: View {
     
-//    @Binding var selectedFilterIndex: Int
     @Binding var index: Int
     @Binding var models: [Model]
     @Binding var isAppear: Bool

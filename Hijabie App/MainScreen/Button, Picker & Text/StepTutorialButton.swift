@@ -12,7 +12,6 @@ var steps = ["1", "2", "3", "4", "5", "6", "7"]
 
 struct StepTutorialButton: View {
     @Binding var videos: [Videos]
-    @Binding var stepIndex: Int
     @Binding var selectedStepIndex: Int
     @Binding var isStepSelected: Int
     @Binding var player: AVPlayer?
@@ -28,40 +27,52 @@ struct StepTutorialButton: View {
         // Add more steps as needed
     ]
     
+    var stepDescriptionView: stepDescription {
+        stepDescription(videos: $videos, index: $selectedStepIndex, indexText: $isStepSelected)
+    }
+    
     var body: some View {
         
         ScrollViewReader { scrollView in
             
-            ScrollView(.horizontal, showsIndicators: false) {
+            VStack{
                 
-                HStack(spacing: 1) {
+                stepDescriptionView
+                
+                ScrollView(.horizontal, showsIndicators: false) {
                     
-                    ForEach(steps.indices, id: \.self) { index in
+                    HStack(spacing: 1) {
                         
-                        Text(steps[index])
-                            .font(isStepSelected == index ? .system(size: 17, weight: .bold) : .system(size: 17))
-                            .padding(.horizontal)
-                            .padding(.vertical)
-                            .foregroundColor(isStepSelected == index ? .white : .black)
-                            .background(Circle().fill(isStepSelected == index ? .black : .white).opacity(0.7).frame(width: 34))
-                            .onTapGesture {
-                                withAnimation(.interactiveSpring) {
-                                    
-                                    isStepSelected = index
-                                    
-                                    if let player = player, let time = startTime[index] {
-                                        player.seek(to: time)
+                        ForEach(steps.indices, id: \.self) { stepIndex in
+                            
+                            Text(steps[stepIndex])
+                                .font(isStepSelected == stepIndex ? .system(size: 17, weight: .bold) : .system(size: 17))
+                                .padding(.horizontal)
+                                .padding(.vertical)
+                                .foregroundColor(isStepSelected == stepIndex ? .white : .black)
+                                .background(Circle().fill(isStepSelected == stepIndex ? .black : .white).opacity(0.7).frame(width: 34))
+                                .onTapGesture {
+                                    withAnimation(.interactiveSpring) {
+                                        
+                                        isStepSelected = stepIndex
+                                        
+                                        if let player = player, let time = startTime[stepIndex] {
+                                            player.seek(to: time)
+                                        }
+                                        
+                                        
+                                        //                                    isStepSelected =
+                                        
                                     }
-                                    
                                 }
-                            }
+                        }
                     }
                 }
                 //                    .padding()
                 .frame(width: CGFloat(steps.count) * 45)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 48, style: .continuous))
                 .opacity(0.7)
-//                .padding(.top, 400)
+                //                .padding(.top, 400)
                 
             }
             //            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
