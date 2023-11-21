@@ -23,6 +23,7 @@ struct FirstHijabModel: UIViewRepresentable {
     @ObservedObject var faceData: FaceShapeData
 //    @State private var selectedObject = 0
     
+//    var UDData = UserDefaults.standard
     
     func makeUIView(context: Context) -> ARView {
         
@@ -35,6 +36,7 @@ struct FirstHijabModel: UIViewRepresentable {
             let configuration = ARFaceTrackingConfiguration()
             arView.session.run(configuration)
             
+            faceData.faceLabel = UserDefaults.standard.object(forKey: "faceLabel") as? String ?? "Oval"
             
             if faceData.faceLabel == "Oval"{
                 guard let anchor = try? Entity.loadAnchor(named: "Hijab1oval", in: nil) else { return arView }
@@ -56,10 +58,6 @@ struct FirstHijabModel: UIViewRepresentable {
                 guard let anchor = try? Entity.loadAnchor(named: "Hijab1heart", in: nil) else { return arView }
                     arView.scene.addAnchor(anchor)
             }
-            
-            
-            
-            
             
         }
         

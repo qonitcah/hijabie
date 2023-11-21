@@ -5,29 +5,36 @@
 //  Created by Qonitah Faridah on 12/11/23.
 //
 
-import Foundation
+import AVKit
 import SwiftUI
 
 struct OnBoarding4View: View {
-    @State var isAppear: Bool = true
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var player: AVPlayer?
+    
     
     var body: some View {
-        if isAppear{
-            Text("Tip:\nTie your hair to achieve\na better hijab visualization")
+        VStack{
+            
+            CustomVideoController(player: AVPlayer(url: URL(string: "inner")!), startTime: 0.0)
+                .frame(height: 320)
+                .onTapGesture{
+                    presentationMode.wrappedValue.dismiss()
+                }
+            
+            Text("Tip:\nTie your hair or use inner hijab\nto achieve a better hijab visualization")
                 .font(.system(size: 20, weight: .light))
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .padding()
                 .background(.ultraThinMaterial,
                             in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .onAppear {
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
-                        withAnimation {
-                            self.isAppear = false
-                        }
-                    }
+                .onTapGesture{
+                    presentationMode.wrappedValue.dismiss()
                 }
+            
+            
         }
     }
 }
+

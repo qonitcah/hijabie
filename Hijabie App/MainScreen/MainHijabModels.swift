@@ -12,37 +12,37 @@ import ARKit
 enum TabbedItems: Int, CaseIterable{
     case tryOn = 0
     case tutor
-    
+
     var title: String{
         switch self {
         case .tryOn:
             return "TRY ON"
         case .tutor:
             return "HOW TO WEAR"
-            
+
         }
     }
 }
 
 struct MainHijabModels: View {
     
-    @State var models = [
-        Model(id: 0, name: "Pashmina", modelName: "hijab1.usdz", details: "1"),
-        Model(id: 1,name: "Instant Pashmina", modelName: "helmet_blender.usdz", details: "2"),
-        Model(id: 2,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "3"),
-        Model(id: 3,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "4"),
-        Model(id: 4,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "5")]
+    @ObservedObject var faceData: FaceShapeData
     
+    @State private var faceLabel : String = UserDefaults.standard.string(forKey: "faceLabel") ?? "Default"
     @State private var selectedHijab : Int = 0
     
     @State var index = 0
-//    @State private var selectedFilterIndex: Int = 0
     @State var selectedTab = 0
-    @ObservedObject var faceData: FaceShapeData
     @State var degree = 90.0
-    @State var isAppear: Bool = true
-    @State var isPlaying: Bool = false
-
+    @State var isAppear: Bool = false
+    @State var player: AVPlayer?
+    
+    @State var models = [
+        Model(id: 0, name: "Pashmina", modelName: "hijab1.usdz", details: "1"),
+        Model(id: 1,name: "Instant Pashmina", modelName: "helmet_blender.usdz", details: "2"),
+        Model(id: 2,name: "Square", modelName: "helmet_blender.usdz", details: "3"),
+        Model(id: 3,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "4"),
+        Model(id: 4,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "5")]
     
     let array : [MyColors] =  [MyColors(id: 0, name: "RED", color: Color.red),
                                MyColors(id: 1, name: "ORANGE",color: Color.orange),
@@ -56,15 +56,22 @@ struct MainHijabModels: View {
                                MyColors(id: 9, name: "LILAC", color: Color.purple)]
     
     
+    
     var body: some View {
         
+        Button(action: {isAppear = true}){
+            Text("START YOUR HIJAB JOURNEY")
+        }
+        .fullScreenCover(isPresented: $isAppear){
+            OnBoarding4View(player: $player)
+        }
         
         ZStack(alignment: .bottom){
             
             TabView(selection: $selectedTab) {
                 
                 ZStack{
-
+                    
                     // conditional untuk RealityKit AR model view
                     if (selectedHijab == 0){
                         FirstHijabModel(faceData: faceData)
@@ -90,62 +97,25 @@ struct MainHijabModels: View {
                                 .multilineTextAlignment(.center)
                                 .padding()
                             .background(.ultraThinMaterial)}
-//                        EmptyView()
-                        }
-                        
-                                     
-            
+                    }
                     
-                    //                    ZStack{
-                    
-                    //                        ColorWheelPicker(degree: $degree, array: array, circleSize: 393)
-                    //                            .offset(y: 350)
-                    
-//                    OnBoarding4View()
                     
                     
                     namaModel(models: $models, index: $index)
                         .offset(y:243)
                     
-                        ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
-                            .position(.init(x: 195, y: 685))
-                        
-                        
+                    ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
+                        .position(.init(x: 195, y: 685))
                     
-//                        if (isAppear == false){
-//                            
-//                                VStack {
-//                                    Image(systemName: "chevron.up")
-//                                        .font(.system(size: 40))
-//                                    Text("HIJAB MODEL")
-//                                        .font(.system(size: 17))
-//                                }
-//                                .foregroundColor(Color.white)
-//    //                            .opacity(isAppear ? 0 : 1) //karena opacity cuma ngilangin warna, jadi mendingan pake conditional rendering
-//                                .padding(.top, 675)
-//                                .onTapGesture {
-//                                    isAppear.toggle()
-//
-//                                
-//                            }
-//                        }else if (isAppear == true){
-//                            ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
-//    //                            .opacity(isAppear ? 1 : 0)
-//                        }else{
-//                            EmptyView()
-//                        }
-                        //                    }
-                        
-                        
                     
                 }
                 .ignoresSafeArea(.all, edges: .top)
                 .tag(0)
                 
                 TutorialView(models: $models, selectedHijab: $selectedHijab, index: $index)
-//                    .ignoresSafeArea(.all, edges: .top)
+                //                    .ignoresSafeArea(.all, edges: .top)
                     .tag(1)
-                
+//                
             }
             
             
@@ -185,17 +155,17 @@ struct Model : Identifiable {
 
 struct TabBarView: View {
     //    var tabbarItems: [String]
-    
+
     @Binding var selectedTab: Int
     var tabbedItems = ["TRY ON", "HOW TO WEAR"]
-    
-    
+
+
     var body: some View {
         ScrollViewReader { scrollView in
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(tabbedItems.indices, id: \.self) { index in
-                        
+
                         Text(tabbedItems[index])
                             .font(.subheadline)
                             .padding(.horizontal)
@@ -211,47 +181,8 @@ struct TabBarView: View {
                 }
             }
             .padding()
-            //            .background(Color(.systemGray6))
-            //            .cornerRadius(25)
-            
+
+
         }
     }
 }
-
-//
-//extension MainHijabModels{
-//    func CustomTabItem(title: String, isActive: Bool) -> some View{
-//
-//        ScrollViewReader { scrollView in
-//            ScrollView(.horizontal, showsIndicators: false) {
-//
-//                ZStack{
-//
-////                    Text(title)
-////                        .font(.system(size: 14))
-////                        .foregroundColor(isActive ? .white : .gray)
-//
-//                    if isActive{
-//                        Text(title)
-//                            .font(.system(size: 17))
-//                            .padding(.horizontal)
-//                            .padding(.vertical, 2)
-//                            .foregroundColor(isActive ? .white : .gray)
-//
-//                        //                            .background(Capsule().foregroundColor(isActive ? .blue : .clear))
-//
-//                    }
-//                }
-//
-//            }
-//            //            .frame(width: isActive ? .infinity : 38, height: 38)
-//            //                            .background()
-//            //            .background(isActive ? .purple.opacity(0.4) : .clear)
-//            //            .cornerRadius(30)
-//
-//        }
-//        .padding()
-//        .background(Color(.systemGray6))
-//        .cornerRadius(25)
-//    }
-//}

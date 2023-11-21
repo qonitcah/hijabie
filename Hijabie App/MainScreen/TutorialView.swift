@@ -13,7 +13,6 @@ struct TutorialView: View {
     @Binding var selectedHijab: Int
     @Binding var index: Int
     @State private var selectedStepIndex: Int = 0
-//    @State var stepIndex = 0
     @State var isStepSelected: Int = 0
     @State var isPlaying: Bool = true
     @State var isAppear: Bool = true
@@ -27,31 +26,14 @@ struct TutorialView: View {
     
     @State var videos = [
         Videos(id: 0, name: "tutor1video", step: [StepsVideos(id: 0, text: "STEP 1\nSatu sisi hijab lebih pendek dari lainnya"),
-                                                 StepsVideos(id: 1, text: "STEP 2\nTarik ke bagian samping kepala,\nlalu sematkan jarum pentul"),
+                                                  StepsVideos(id: 1, text: "STEP 2\nTarik ke bagian samping kepala,\nlalu sematkan jarum pentul"),
                                                   StepsVideos(id: 2, text: "STEP 3\nUjung sisa kainnya tarik ke belakang"),
                                                   StepsVideos(id: 3, text: "STEP 4\nUjung kain yang lebih panjang\njuga tarik ke belakang"),
                                                   StepsVideos(id: 4, text: "STEP 5\nAngkat bagian belakang,\n lalu ikat sisi panjang dan pendek"),
-                                                  StepsVideos(id: 5, text: "STEP 6\nSematkan jarum pentul \ndi sisi samping kepala bagian depan"),
+                                                  StepsVideos(id: 5, text: "STEP 6\nSematkan jarum pentul di sisi samping kepala bagian depan"),
                                                   StepsVideos(id: 6, text: "STEP 7\nTerakhir rapikan pashmina, jadi deh!")])
     ]
-//    @State var videos = [
-//        Videos(id: 0, name: "tutor1video",
-//               stepOne: "STEP 1\nSatu sisi hijab lebih pendek dari lainnya",
-//               stepTwo: "STEP 2\nTarik ke bagian samping kepala,\nlalu sematkan jarum pentul",
-//               stepThree: "STEP 3\nUjung sisa kainnya tarik ke belakang",
-//               stepFour: "STEP 4\nUjung kain yang lebih panjang juga tarik ke belakang",
-//               stepFive: "STEP 5\nAngkat bagian belakang,\n lalu ikat sisi panjang dan pendek",
-//               stepSix: "STEP 6\nSematkan jarum pentul \ndi sisi samping kepala bagian depan",
-//               stepSeven: "STEP 7\nTerakhir rapikan pashmina, jadi deh!"),
-//        
-//        Videos(id: 1, name: "tutor1video",
-//               stepOne: "STEP 1\nSatu sisi hijab lebih pendek dari lainnya",
-//               stepTwo: "STEP 2\nTarik ke bagian samping kepala,\nlalu sematkan jarum pentul",
-//               stepThree: "STEP 3\nUjung sisa kainnya tarik ke belakang",
-//               stepFour: "STEP 4\nUjung kain yang lebih panjang juga tarik ke belakang",
-//               stepFive: "STEP 5\nAngkat bagian belakang,\n lalu ikat sisi panjang dan pendek",
-//               stepSix: "STEP 6\nSematkan jarum pentul \ndi sisi samping kepala bagian depan",
-//               stepSeven: "STEP 7\nTerakhir rapikan pashmina, jadi deh!")]
+    
     @State var chosenVideo : Videos?
     @State var indexText: Int = 0
     
@@ -86,7 +68,7 @@ struct TutorialView: View {
                 })
                 Spacer()
             }
-
+            
             
             StepTutorialButton(videos: $videos, selectedStepIndex: $selectedStepIndex, isStepSelected: $isStepSelected, player: $player)
                 .position(.init(x: 240, y: 80))
@@ -106,13 +88,6 @@ struct Videos : Identifiable {
     var id: Int
     var name: String
     var step: [StepsVideos]
-//    var stepOne: String
-//    var stepTwo: String
-//    var stepThree: String
-//    var stepFour: String
-//    var stepFive: String
-//    var stepSix: String
-//    var stepSeven: String
 }
 
 struct StepsVideos : Identifiable {

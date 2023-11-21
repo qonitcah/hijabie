@@ -38,11 +38,11 @@ struct stepDescription: View {
             Text(videos[index].step[indexText].text)
                 .multilineTextAlignment(.center)
         .padding()
-//        .frame(height: 76)
+        .frame(width: 320)
         .background(.ultraThinMaterial,
                     in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .foregroundColor(.black)
-        .opacity(0.7)
+        .foregroundColor(.white)
+//        .opacity(0.5)
     }
     
 }

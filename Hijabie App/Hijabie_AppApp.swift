@@ -9,14 +9,19 @@ import SwiftUI
 
 @main
 struct Hijabie_AppApp: App {
+//    @AppStorage("isOnboardingComplete") var isOnboardingComplete: Bool = false
+//    @ObservedObject var faceData: FaceShapeData = FaceShapeData()
     
+    var UDData = UserDefaults.standard
+
     var body: some Scene {
-        WindowGroup {
-
-            OnBoarding1View()
-//            ColorWheelPicker()
-            
-
-        }
+        WindowGroup(content: {
+            if UDData.bool(forKey: "isOnboardingComplete") {
+                MainHijabModels(faceData: FaceShapeData())
+            } else {
+                OnBoarding1View()
+                //            ColorWheelPicker()
+            }
+        })
     }
 }

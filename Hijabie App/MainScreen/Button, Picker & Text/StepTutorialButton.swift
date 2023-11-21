@@ -59,10 +59,6 @@ struct StepTutorialButton: View {
                                         if let player = player, let time = startTime[stepIndex] {
                                             player.seek(to: time)
                                         }
-                                        
-                                        
-                                        //                                    isStepSelected =
-                                        
                                     }
                                 }
                         }
@@ -71,7 +67,7 @@ struct StepTutorialButton: View {
                 //                    .padding()
                 .frame(width: CGFloat(steps.count) * 45)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 48, style: .continuous))
-                .opacity(0.7)
+//                .opacity(0.5)
                 //                .padding(.top, 400)
                 
             }
