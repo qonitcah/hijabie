@@ -32,6 +32,9 @@
 		B48AA7E72B0C500000982CC0 /* inner.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B48AA7E62B0C500000982CC0 /* inner.mp4 */; };
 		B48AA7EA2B0C502000982CC0 /* tutor3video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B48AA7E82B0C501E00982CC0 /* tutor3video.mp4 */; };
 		B48AA7EB2B0C502000982CC0 /* tutor1rev.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B48AA7E92B0C502000982CC0 /* tutor1rev.mp4 */; };
+		B48AA7ED2B0CB29600982CC0 /* ThirdHijabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48AA7EC2B0CB29600982CC0 /* ThirdHijabModel.swift */; };
+		B48AA7EF2B0CB2C700982CC0 /* FourthHijabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48AA7EE2B0CB2C700982CC0 /* FourthHijabModel.swift */; };
+		B48AA7F12B0CB2E500982CC0 /* FifthHijabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48AA7F02B0CB2E500982CC0 /* FifthHijabModel.swift */; };
 		B48F8B102AE57095005208B7 /* OnBoarding3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48F8B0F2AE57095005208B7 /* OnBoarding3View.swift */; };
 		B4B97B9C2AF0B17B002B460D /* tutor1video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B4B97B9B2AF0B17B002B460D /* tutor1video.mp4 */; };
 		B4C16D102AEF4DCB0032CF5B /* ChooseHijabModelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C16D0F2AEF4DCB0032CF5B /* ChooseHijabModelButton.swift */; };
@@ -74,6 +77,9 @@
 		B48AA7E62B0C500000982CC0 /* inner.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inner.mp4; sourceTree = "<group>"; };
 		B48AA7E82B0C501E00982CC0 /* tutor3video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutor3video.mp4; sourceTree = "<group>"; };
 		B48AA7E92B0C502000982CC0 /* tutor1rev.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutor1rev.mp4; sourceTree = "<group>"; };
+		B48AA7EC2B0CB29600982CC0 /* ThirdHijabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdHijabModel.swift; sourceTree = "<group>"; };
+		B48AA7EE2B0CB2C700982CC0 /* FourthHijabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthHijabModel.swift; sourceTree = "<group>"; };
+		B48AA7F02B0CB2E500982CC0 /* FifthHijabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthHijabModel.swift; sourceTree = "<group>"; };
 		B48F8B0F2AE57095005208B7 /* OnBoarding3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding3View.swift; sourceTree = "<group>"; };
 		B4B97B9B2AF0B17B002B460D /* tutor1video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutor1video.mp4; sourceTree = "<group>"; };
 		B4C16D0F2AEF4DCB0032CF5B /* ChooseHijabModelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseHijabModelButton.swift; sourceTree = "<group>"; };
@@ -113,6 +119,9 @@
 			children = (
 				B4C5E93A2AE661DF00080A5D /* FirstHijabModel.swift */,
 				B4F472192B02E44F00380FF9 /* SecondHijabModel.swift */,
+				B48AA7EC2B0CB29600982CC0 /* ThirdHijabModel.swift */,
+				B48AA7EE2B0CB2C700982CC0 /* FourthHijabModel.swift */,
+				B48AA7F02B0CB2E500982CC0 /* FifthHijabModel.swift */,
 			);
 			path = HijabModels;
 			sourceTree = "<group>";
@@ -341,7 +350,9 @@
 				B42498922B0B4CA100A4C6C2 /* MainScreenView.swift in Sources */,
 				B47E907C2AFCDD0A0010FB89 /* StepTutorialButton.swift in Sources */,
 				B464D2352ADE7E3C00376914 /* ContentView.swift in Sources */,
+				B48AA7EF2B0CB2C700982CC0 /* FourthHijabModel.swift in Sources */,
 				B425697F2AEB9E7C001FEC96 /* Camera+AR.swift in Sources */,
+				B48AA7ED2B0CB29600982CC0 /* ThirdHijabModel.swift in Sources */,
 				B4C16D102AEF4DCB0032CF5B /* ChooseHijabModelButton.swift in Sources */,
 				B4F8CDD32B038A6900975B67 /* DescriptionTexts.swift in Sources */,
 				B40759162AF9256E00305D57 /* ColorWheelPicker.swift in Sources */,
@@ -355,6 +366,7 @@
 				B4C5E93B2AE661DF00080A5D /* FirstHijabModel.swift in Sources */,
 				B476F2BE2AE140A8002C7479 /* FacialShapeML.mlmodel in Sources */,
 				B4F0BF952AE5513700B4D918 /* OnBoarding1View.swift in Sources */,
+				B48AA7F12B0CB2E500982CC0 /* FifthHijabModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

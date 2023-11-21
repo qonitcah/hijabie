@@ -10,10 +10,11 @@ import SwiftUI
 import AVKit
 
 struct CustomVideoController: UIViewControllerRepresentable{
-    var player: AVPlayer
+    @Binding var player: AVPlayer?
+    
     let startTime: Double
     
-    func makeUIViewController(context: Context) -> some UIViewController {
+    func makeUIViewController(context: Context) ->  AVPlayerViewController {
         let controller = AVPlayerViewController()
         controller.player = player
         controller.showsPlaybackControls = false
@@ -21,13 +22,13 @@ struct CustomVideoController: UIViewControllerRepresentable{
         
         
         let cmTime = CMTime(seconds: startTime, preferredTimescale: 1)
-                player.seek(to: cmTime)
+        player?.seek(to: cmTime)
         
         
         return controller
     }
     
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
+    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
+        uiViewController.player = player
     }
 }

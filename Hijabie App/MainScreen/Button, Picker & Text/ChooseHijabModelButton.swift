@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import AVFoundation
 
 struct ChooseHijabModel: View {
     
@@ -14,9 +15,12 @@ struct ChooseHijabModel: View {
     @Binding var models: [Model]
     @Binding var isAppear: Bool
     @Binding var selectedHijab : Int
+    @Binding var player: AVPlayer?
+    @Binding var videos: [Videos]
+    @Binding var currentVideoIndex: Int
     
     let filters = ["Filter 1", "Filter 2", "Filter 3", "Filter 4", "Filter 5"]
-    let hijabModels = ["firstHijab","secondHijab","coming", "coming", "coming"] // nama - nama image hijab
+    let hijabModels = ["firstHijab","secondHijab","thirdHijab", "coming", "coming"] // nama - nama image hijab
     
     var body: some View {
         
@@ -37,7 +41,6 @@ struct ChooseHijabModel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 
                 HStack(spacing: 20) {
-                    //                        Spacer().frame(width: 180 /** CGFloat(selectedHijab)*/)
                     
                     ForEach(0..<hijabModels.count, id: \.self) { filterIndex in
                         
@@ -48,10 +51,10 @@ struct ChooseHijabModel: View {
                         .onTapGesture {
                             withAnimation {
                                 selectedHijab = filterIndex
+                                print("selected \(selectedHijab)")
                                 index = filterIndex
-                                
-                                //                                    let _ = print(selectedHijab)
-                                //                                    let _ = print(filterIndex)
+                                currentVideoIndex = filterIndex
+                              
                             }
                         }
                     }
@@ -65,6 +68,7 @@ struct ChooseHijabModel: View {
             
         }
     }
+    
     
 }
 

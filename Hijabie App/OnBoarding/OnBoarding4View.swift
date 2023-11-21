@@ -16,11 +16,11 @@ struct OnBoarding4View: View {
     var body: some View {
         VStack{
             
-            CustomVideoController(player: AVPlayer(url: URL(string: "inner")!), startTime: 0.0)
-                .frame(height: 320)
-                .onTapGesture{
-                    presentationMode.wrappedValue.dismiss()
-                }
+//            CustomVideoController(player: AVPlayer(url: URL(string: "inner")!), startTime: 0.0)
+//                .frame(height: 320)
+//                .onTapGesture{
+//                    presentationMode.wrappedValue.dismiss()
+//                }
             
             Text("Tip:\nTie your hair or use inner hijab\nto achieve a better hijab visualization")
                 .font(.system(size: 20, weight: .light))

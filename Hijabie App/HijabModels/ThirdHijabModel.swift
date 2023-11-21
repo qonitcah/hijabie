@@ -1,9 +1,4 @@
-//
-//  FirstHijabModel.swift
-//  Hijabie App
-//
-//  Created by Qonitah Faridah on 23/10/23.
-//
+
 import SwiftUI
 import RealityKit
 import ARKit
@@ -18,11 +13,12 @@ import ARKit
 //
 //var object = ["Hijab1oval", "Hijab1square", "Hijab1round", "Hijab1heart", "Hijab1oblong"]
 
-struct FirstHijabModel: UIViewRepresentable {
+struct ThirdHijabModel: UIViewRepresentable {
     
     @ObservedObject var faceData: FaceShapeData
-
-    @State var modelName: String = "Hijab1"
+//    @State private var selectedObject = 0
+    
+//    var UDData = UserDefaults.standard
     
     func makeUIView(context: Context) -> ARView {
         
@@ -38,23 +34,23 @@ struct FirstHijabModel: UIViewRepresentable {
             faceData.faceLabel = UserDefaults.standard.object(forKey: "faceLabel") as? String ?? "Oval"
             
             if faceData.faceLabel == "Oval"{
-                guard let anchor = try? Entity.loadAnchor(named: "\(modelName)oval", in: nil) else { return arView }
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab1oval", in: nil) else { return arView }
                     arView.scene.addAnchor(anchor)
             }
             else if faceData.faceLabel == "Square"{
-                guard let anchor = try? Entity.loadAnchor(named: "\(modelName)square", in: nil) else { return arView }
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab1square", in: nil) else { return arView }
                     arView.scene.addAnchor(anchor)
             }
             else if faceData.faceLabel == "Round"{
-                guard let anchor = try? Entity.loadAnchor(named: "\(modelName)round", in: nil) else { return arView}
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab1round", in: nil) else { return arView}
                     arView.scene.addAnchor(anchor)
             }
             else if faceData.faceLabel == "Oblong"{
-                guard let anchor = try? Entity.loadAnchor(named: "\(modelName)oblong", in: nil) else { return arView}
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab1oblong", in: nil) else { return arView}
                     arView.scene.addAnchor(anchor)
             }
             else if faceData.faceLabel == "Heart"{
-                guard let anchor = try? Entity.loadAnchor(named: "\(modelName)heart", in: nil) else { return arView }
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab1heart", in: nil) else { return arView }
                     arView.scene.addAnchor(anchor)
             }
             
@@ -64,9 +60,7 @@ struct FirstHijabModel: UIViewRepresentable {
         
     }
     
-    func updateUIView(_ uiView: ARView, context: Context) {
-        
-    }
+    func updateUIView(_ uiView: ARView, context: Context) {}
     
 
 }

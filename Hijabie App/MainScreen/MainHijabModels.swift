@@ -29,6 +29,7 @@ struct MainHijabModels: View {
     @ObservedObject var faceData: FaceShapeData
     
     @State private var faceLabel : String = UserDefaults.standard.string(forKey: "faceLabel") ?? "Default"
+    
     @State private var selectedHijab : Int = 0
     
     @State var index = 0
@@ -36,6 +37,8 @@ struct MainHijabModels: View {
     @State var degree = 90.0
     @State var isAppear: Bool = false
     @State var player: AVPlayer?
+    @State var currentVideoIndex: Int = 0
+    @State var videos = [Videos]()
     
     @State var models = [
         Model(id: 0, name: "Pashmina", modelName: "hijab1.usdz", details: "1"),
@@ -59,12 +62,13 @@ struct MainHijabModels: View {
     
     var body: some View {
         
-        Button(action: {isAppear = true}){
-            Text("START YOUR HIJAB JOURNEY")
-        }
-        .fullScreenCover(isPresented: $isAppear){
-            OnBoarding4View(player: $player)
-        }
+        ZStack{
+            Button(action: {isAppear = true}){
+                Text("START YOUR HIJAB JOURNEY")
+            }
+            .fullScreenCover(isPresented: $isAppear){
+                OnBoarding4View(player: $player)
+            }
         
         ZStack(alignment: .bottom){
             
@@ -74,7 +78,8 @@ struct MainHijabModels: View {
                     
                     // conditional untuk RealityKit AR model view
                     if (selectedHijab == 0){
-                        FirstHijabModel(faceData: faceData)
+                        FirstHijabModel(faceData: faceData, modelName: "Hijab1")
+//                        SecondHijabModel()
                             .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
                                 Color.clear
                                     .frame(height: 0)
@@ -82,30 +87,55 @@ struct MainHijabModels: View {
                             }
                     }
                     else if (selectedHijab == 1){
-                        SecondHijabModel()
+                        FirstHijabModel(faceData: faceData, modelName: "Hijab2")
+                        //SecondHijabModel()
                             .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
                                 Color.clear
                                     .frame(height: 0)
                                     .background(Material.bar)
                             }
                     }
-                    else {
-                        ZStack{
-                            Text("Coming Soon")
-                                .font(.system(size: 20, weight: .light))
-                                .foregroundStyle(.white)
-                                .multilineTextAlignment(.center)
-                                .padding()
-                            .background(.ultraThinMaterial)}
+                    else if (selectedHijab == 2){
+                        FirstHijabModel(faceData: faceData)
+                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                                Color.clear
+                                    .frame(height: 0)
+                                    .background(Material.bar)
+                            }
                     }
+                    else if (selectedHijab == 3){
+                        FourthHijabModels()
+                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                                Color.clear
+                                    .frame(height: 0)
+                                    .background(Material.bar)
+                            }
+                    }
+                    else if (selectedHijab == 4){
+                        FifthHijabModels()
+                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                                Color.clear
+                                    .frame(height: 0)
+                                    .background(Material.bar)
+                            }
+                    }
+//                    else {
+//                        ZStack{
+//                            Text("Coming Soon")
+//                                .font(.system(size: 20, weight: .light))
+//                                .foregroundStyle(.white)
+//                                .multilineTextAlignment(.center)
+//                                .padding()
+//                            .background(.ultraThinMaterial)}
+//                    }
                     
                     
                     
                     namaModel(models: $models, index: $index)
-                        .offset(y:243)
+                        .offset(y:245)
                     
-                    ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab)
-                        .position(.init(x: 195, y: 685))
+                    ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab, player: $player, videos: $videos, currentVideoIndex: $currentVideoIndex)
+                        .position(.init(x: 195, y: 695))
                     
                     
                 }
@@ -115,7 +145,7 @@ struct MainHijabModels: View {
                 TutorialView(models: $models, selectedHijab: $selectedHijab, index: $index)
                 //                    .ignoresSafeArea(.all, edges: .top)
                     .tag(1)
-//                
+                //
             }
             
             
@@ -136,7 +166,9 @@ struct MainHijabModels: View {
         }
         .navigationBarBackButtonHidden()
     }
+    }
 }
+    
 
 
 struct MyColors : Identifiable {
