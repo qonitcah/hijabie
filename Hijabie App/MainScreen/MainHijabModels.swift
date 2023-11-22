@@ -39,6 +39,8 @@ struct MainHijabModels: View {
     @State var player: AVPlayer?
     @State var currentVideoIndex: Int = 0
     @State var videos = [Videos]()
+    @State var modelName: String = "Hijab1"
+    
     
     @State var models = [
         Model(id: 0, name: "Pashmina", modelName: "hijab1.usdz", details: "1"),
@@ -62,23 +64,19 @@ struct MainHijabModels: View {
     
     var body: some View {
         
-        ZStack{
-            Button(action: {isAppear = true}){
-                Text("START YOUR HIJAB JOURNEY")
-            }
-            .fullScreenCover(isPresented: $isAppear){
-                OnBoarding4View(player: $player)
-            }
+        
         
         ZStack(alignment: .bottom){
             
             TabView(selection: $selectedTab) {
                 
+                
                 ZStack{
                     
                     // conditional untuk RealityKit AR model view
-                    if (selectedHijab == 0){
-                        FirstHijabModel(faceData: faceData, modelName: "Hijab1")
+                    if (selectedHijab == 0 || selectedHijab == 1 || selectedHijab == 2){
+                       
+                        FirstHijabModel(faceData: faceData, selectedHijab: $selectedHijab)
 //                        SecondHijabModel()
                             .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
                                 Color.clear
@@ -86,23 +84,23 @@ struct MainHijabModels: View {
                                     .background(Material.bar)
                             }
                     }
-                    else if (selectedHijab == 1){
-                        FirstHijabModel(faceData: faceData, modelName: "Hijab2")
-                        //SecondHijabModel()
-                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
-                                Color.clear
-                                    .frame(height: 0)
-                                    .background(Material.bar)
-                            }
-                    }
-                    else if (selectedHijab == 2){
-                        FirstHijabModel(faceData: faceData)
-                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
-                                Color.clear
-                                    .frame(height: 0)
-                                    .background(Material.bar)
-                            }
-                    }
+//                    else if (selectedHijab == 1){
+////                        FirstHijabModel(faceData: faceData, modelName: "Hijab3")
+//                        SecondHijabModel()
+//                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+//                                Color.clear
+//                                    .frame(height: 0)
+//                                    .background(Material.bar)
+//                            }
+//                    }
+//                    else if (selectedHijab == 2){
+//                        FirstHijabModel(faceData: faceData, selectedHijab: $selectedHijab)
+//                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+//                                Color.clear
+//                                    .frame(height: 0)
+//                                    .background(Material.bar)
+//                            }
+//                    }
                     else if (selectedHijab == 3){
                         FourthHijabModels()
                             .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
@@ -149,6 +147,7 @@ struct MainHijabModels: View {
             }
             
             
+            
             ForEach((TabbedItems.allCases), id: \.self){ item in
                 Button{
                     selectedTab = item.rawValue
@@ -167,7 +166,7 @@ struct MainHijabModels: View {
         .navigationBarBackButtonHidden()
     }
     }
-}
+
     
 
 

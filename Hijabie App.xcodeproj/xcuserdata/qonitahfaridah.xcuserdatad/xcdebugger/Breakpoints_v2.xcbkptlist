@@ -62,24 +62,8 @@
             filePath = "Hijabie App/MainScreen/MainHijabModels.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F9FD6F3D-79BF-4C4F-A17E-B88DBFC2069E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hijabie App/MainScreen/MainHijabModels.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -94,8 +78,8 @@
             filePath = "Hijabie App/MainScreen/MainHijabModels.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -247,36 +231,83 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "978E996D-1F30-4DAD-AFD5-EFED61A868C2"
-            shouldBeEnabled = "Yes"
+            uuid = "BDBD2F95-3CA7-45B0-9BC3-E3FA1A60C52C"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hijabie App/HijabModels/FirstHijabModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "updateUIView(_:context:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BDBD2F95-3CA7-45B0-9BC3-E3FA1A60C52C - 8bc0f29c6c6d51ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hijabie.FirstHijabModel.updateUIView(_: RealityKit.ARView, context: SwiftUI.UIViewRepresentableContext&lt;Hijabie.FirstHijabModel&gt;) -&gt; ()"
+                  moduleName = "Hijabie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qonitahfaridah/Documents/GitHub/hijabie/Hijabie%20App/HijabModels/FirstHijabModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "BDBD2F95-3CA7-45B0-9BC3-E3FA1A60C52C - 8bc0f29c6c6d51ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hijabie.FirstHijabModel.updateUIView(_: RealityKit.ARView, context: SwiftUI.UIViewRepresentableContext&lt;Hijabie.FirstHijabModel&gt;) -&gt; ()"
+                  moduleName = "Hijabie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qonitahfaridah/Documents/GitHub/hijabie/Hijabie%20App/HijabModels/FirstHijabModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "BDBD2F95-3CA7-45B0-9BC3-E3FA1A60C52C - 8bc0f29c6c6d51ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hijabie.FirstHijabModel.updateUIView(_: RealityKit.ARView, context: SwiftUI.UIViewRepresentableContext&lt;Hijabie.FirstHijabModel&gt;) -&gt; ()"
+                  moduleName = "Hijabie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qonitahfaridah/Documents/GitHub/hijabie/Hijabie%20App/HijabModels/FirstHijabModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "28854D5C-8B92-40E7-BA78-FFF054DDE755"
+            uuid = "56CAC02C-1CA2-4F2B-B56A-89246C0D1663"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hijabie App/HijabModels/FirstHijabModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "makeUIView(context:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "28854D5C-8B92-40E7-BA78-FFF054DDE755 - ae7330f6ecf62119"
+                  uuid = "56CAC02C-1CA2-4F2B-B56A-89246C0D1663 - ae7330f6ecf621d3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -286,12 +317,12 @@
                   urlString = "file:///Users/qonitahfaridah/Documents/GitHub/hijabie/Hijabie%20App/HijabModels/FirstHijabModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "404">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "136">
                </Location>
                <Location
-                  uuid = "28854D5C-8B92-40E7-BA78-FFF054DDE755 - ae7330f6ecf62119"
+                  uuid = "56CAC02C-1CA2-4F2B-B56A-89246C0D1663 - ae7330f6ecf621d3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -301,9 +332,9 @@
                   urlString = "file:///Users/qonitahfaridah/Documents/GitHub/hijabie/Hijabie%20App/HijabModels/FirstHijabModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "324">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>

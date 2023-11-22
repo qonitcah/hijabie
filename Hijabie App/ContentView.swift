@@ -8,19 +8,23 @@
 import SwiftUI
 import RealityKit
 
+
+
 struct ContentView: View {
-//    @ObservedObject var faceData: FaceShapeData
+    //    @ObservedObject var faceData: FaceShapeData
     @StateObject var faceData: FaceShapeData = FaceShapeData()
     
     var body: some View {
-        ZStack {
-//        FaceDetection(faceData: faceData)
-//            Text(faceData.faceLabel)
-            FirstHijabModel(faceData: faceData)
-            
-            
-        }
-        .padding()
+        //        ZStack {
+        ////        FaceDetection(faceData: faceData)
+        ////            Text(faceData.faceLabel)
+        //            FirstHijabModel(faceData: faceData, selectedHijab: $selectedHijab)
+        //
+        //
+        //        }
+        //        .padding()
+        //    }
+        EmptyView()
     }
 }
 

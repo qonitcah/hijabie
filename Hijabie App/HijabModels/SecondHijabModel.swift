@@ -26,7 +26,7 @@ struct SecondHijabModel: UIViewRepresentable {
             arView.session.run(configuration)
             
             
-            if let anchor = try? Entity.loadAnchor(named: "Hijab2", in: nil) {
+            if let anchor = try? Entity.loadAnchor(named: "Hijab3oval", in: nil) {
                 arView.scene.addAnchor(anchor)
             }
         }
