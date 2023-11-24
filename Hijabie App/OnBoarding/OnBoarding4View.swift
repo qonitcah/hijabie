@@ -9,45 +9,69 @@ import AVKit
 import SwiftUI
 
 struct OnBoarding4View: View {
-//    @Environment(\.presentationMode) var presentationMode
-    @State var introPlayer = AVPlayer(url: URL(string: "inner")!)
-    @State private var isPresenting = false
+    
+    @ObservedObject var faceData: FaceShapeData = FaceShapeData()
+    var UDData = UserDefaults.standard
+    
     
     var body: some View {
-        Button("Present Full-Screen Cover") {
-                    isPresenting.toggle()
-                }
-                .fullScreenCover(isPresented: $isPresenting,
-                                 onDismiss: didDismiss) {
+        
+        NavigationView{
+            ZStack{
+                Rectangle()
+                VStack{
+                    Spacer()
                     
-        ZStack{
-            
-            VideoPlayer(player: introPlayer)
-                .frame(height: 320)
-//                .onTapGesture{
-//                    presentationMode.wrappedValue.dismiss()
-//                }
-            
-            VStack{
-                
-                Text("Tip:\nTie your hair or use inner hijab\nto achieve a better hijab visualization")
-                    .font(.system(size: 20, weight: .light))
-                    .foregroundStyle(.white)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .background(.ultraThinMaterial,
-                                in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-                //                    .onTapGesture{
-                //                        presentationMode.wrappedValue.dismiss()
-                //                    }
-                
+                    Image("ponytail")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 200, height: 200.0)
+//                        .padding(.bottom, 25)
+                    
+//                    Spacer()
+                    
+                    Text("Tip:")
+                        .font(.title2)
+                        .multilineTextAlignment(.center)
+                        .bold()
+//                        .padding(.bottom, 25)
+                        .padding()
+                        .foregroundColor(.black)
+                    
+//                    Spacer()
+                    
+                    Text("Tie your hair\nor use an inner hijab\nto achieve a better hijab visualization")
+                        .font(.system(size: 20, weight: .light))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                    
+                    Spacer()
+                    
+//                    NavigationLink(destination: MainHijabModels(faceData: faceData)){
+//                        Text("Next")
+//                            .frame(width: 309.0, height: 50.0)
+//                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+//                            .background(Color.black)
+//                            .clipShape(Capsule())
+//                            .foregroundStyle(Color.white)
+//                            .padding(.bottom, 80)
+//                            .onAppear(perform: {
+//                                UDData.set(true, forKey: "isOnboardingComplete")
+//                            })
+//                    }
+                    
+                }
+                .padding(.top, 50)
             }
-            }
+            .ignoresSafeArea()
         }
+        .accentColor(.white)
+        .navigationBarTitle("Cancel")
+        
     }
-    
-    func didDismiss() {
-            // Handle the dismissing action.
-        }
 }
 
+
+#Preview {
+    OnBoarding4View()
+}

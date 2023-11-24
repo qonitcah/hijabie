@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct OnBoarding1View: View {
-    
-    var UDData = UserDefaults.standard
+
     
     var body: some View {
         NavigationView{
@@ -62,14 +61,11 @@ struct OnBoarding1View: View {
             }
             .ignoresSafeArea()
         }
-//        .onAppear(perform: {
-//            UDData.set(true, forKey: "isOnboardingComplete")
-//        })
         .accentColor(.white)
         .navigationBarTitle("Cancel")
     }
 }
 
-//#Preview {
-//    OnBoarding1View()
-//}
+#Preview {
+    OnBoarding1View()
+}

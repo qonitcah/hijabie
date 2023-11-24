@@ -20,7 +20,7 @@ struct ChooseHijabModel: View {
     @Binding var currentVideoIndex: Int
     
     let filters = ["Filter 1", "Filter 2", "Filter 3", "Filter 4", "Filter 5"]
-    let hijabModels = ["firstHijab","secondHijab","thirdHijab", "coming", "coming"] // nama - nama image hijab
+    let hijabModels = ["firstHijab","secondHijab","thirdHijab"] // nama - nama image hijab
     
     var body: some View {
         

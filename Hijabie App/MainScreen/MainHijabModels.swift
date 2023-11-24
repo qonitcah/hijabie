@@ -29,8 +29,8 @@ struct MainHijabModels: View {
     @ObservedObject var faceData: FaceShapeData
     
     @State private var faceLabel : String = UserDefaults.standard.string(forKey: "faceLabel") ?? "Default"
-    
     @State private var selectedHijab : Int = 0
+//    @State private var showAlert = true
     
     @State var index = 0
     @State var selectedTab = 0
@@ -83,7 +83,10 @@ struct MainHijabModels: View {
                                     .frame(height: 0)
                                     .background(Material.bar)
                             }
+                    } else{
+                        EmptyView()
                     }
+                
 //                    else if (selectedHijab == 1){
 ////                        FirstHijabModel(faceData: faceData, modelName: "Hijab3")
 //                        SecondHijabModel()
@@ -101,22 +104,22 @@ struct MainHijabModels: View {
 //                                    .background(Material.bar)
 //                            }
 //                    }
-                    else if (selectedHijab == 3){
-                        FourthHijabModels()
-                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
-                                Color.clear
-                                    .frame(height: 0)
-                                    .background(Material.bar)
-                            }
-                    }
-                    else if (selectedHijab == 4){
-                        FifthHijabModels()
-                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
-                                Color.clear
-                                    .frame(height: 0)
-                                    .background(Material.bar)
-                            }
-                    }
+//                    else if (selectedHijab == 3){
+//                        FourthHijabModels()
+//                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+//                                Color.clear
+//                                    .frame(height: 0)
+//                                    .background(Material.bar)
+//                            }
+//                    }
+//                    else if (selectedHijab == 4){
+//                        FifthHijabModels()
+//                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+//                                Color.clear
+//                                    .frame(height: 0)
+//                                    .background(Material.bar)
+//                            }
+//                    }
 //                    else {
 //                        ZStack{
 //                            Text("Coming Soon")
@@ -164,6 +167,9 @@ struct MainHijabModels: View {
             
         }
         .navigationBarBackButtonHidden()
+//        .alert(isPresented: $showAlert) {
+//            Alert(title: Text("Tip:"), message: Text("Tie your hair\nor use an inner hijab\nto achieve a better hijab visualization"), dismissButton: .default(Text("OK")))
+//        }
     }
     }
 

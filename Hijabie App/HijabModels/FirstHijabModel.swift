@@ -21,7 +21,7 @@ import ARKit
 struct FirstHijabModel: UIViewRepresentable {
     
     @ObservedObject var faceData: FaceShapeData
-
+    
     @Binding var selectedHijab: Int
     
     func makeUIView(context: Context) -> ARView {
@@ -35,28 +35,28 @@ struct FirstHijabModel: UIViewRepresentable {
             let configuration = ARFaceTrackingConfiguration()
             arView.session.run(configuration)
             
-//            faceData.faceLabel = UserDefaults.standard.object(forKey: "faceLabel") as? String ?? "Oval"
-//            
-//            if faceData.faceLabel == "Oval"{
-//                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)oval", in: nil) else { return arView }
-//                    arView.scene.addAnchor(anchor)
-//            }
-//            else if faceData.faceLabel == "Square"{
-//                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)square", in: nil) else { return arView }
-//                    arView.scene.addAnchor(anchor)
-//            }
-//            else if faceData.faceLabel == "Round"{
-//                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)round", in: nil) else { return arView}
-//                    arView.scene.addAnchor(anchor)
-//            }
-//            else if faceData.faceLabel == "Oblong"{
-//                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)oblong", in: nil) else { return arView}
-//                    arView.scene.addAnchor(anchor)
-//            }
-//            else if faceData.faceLabel == "Heart"{
-//                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)heart", in: nil) else { return arView }
-//                    arView.scene.addAnchor(anchor)
-//            }
+            faceData.faceLabel = UserDefaults.standard.object(forKey: "faceLabel") as? String ?? "Oval"
+            
+            if faceData.faceLabel == "Oval"{
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Oval", in: nil) else { return arView }
+                arView.scene.addAnchor(anchor)
+            }
+            else if faceData.faceLabel == "Square"{
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Square", in: nil) else { return arView }
+                arView.scene.addAnchor(anchor)
+            }
+            else if faceData.faceLabel == "Round"{
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Round", in: nil) else { return arView}
+                arView.scene.addAnchor(anchor)
+            }
+            else if faceData.faceLabel == "Oblong"{
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Oblong", in: nil) else { return arView}
+                arView.scene.addAnchor(anchor)
+            }
+            else if faceData.faceLabel == "Heart"{
+                guard let anchor = try? Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Heart", in: nil) else { return arView }
+                arView.scene.addAnchor(anchor)
+            }
             
         }
         
@@ -67,14 +67,35 @@ struct FirstHijabModel: UIViewRepresentable {
     func updateUIView(_ uiView: ARView, context: Context) {
         
         uiView.scene.anchors.removeAll()
-        
-        faceData.faceLabel = UserDefaults.standard.object(forKey: "faceLabel") as? String ?? "Oval"
-        
-        let anchor = try! Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)\(faceData.faceLabel)", in: nil)
-            uiView.scene.addAnchor(anchor)
-        
+//        
+//                faceData.faceLabel = UserDefaults.standard.object(forKey: "faceLabel") as? String ?? "Oblong"
+//        
+//                let anchor = try! Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Oblong", in: nil)
+//                 uiView.scene.addAnchor(anchor)
+      
+//                
+                if faceData.faceLabel == "Oval"{
+                    let anchor = try! Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Oval", in: nil)
+                    uiView.scene.addAnchor(anchor)
+                }
+                else if faceData.faceLabel == "Square"{
+                    let anchor = try! Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Square", in: nil)
+                    uiView.scene.addAnchor(anchor)
+                }
+                else if faceData.faceLabel == "Round"{
+                    let anchor = try! Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Round", in: nil)
+                    uiView.scene.addAnchor(anchor)
+                }
+                else if faceData.faceLabel == "Oblong"{
+                    let anchor = try! Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Oblong", in: nil)
+                    uiView.scene.addAnchor(anchor)
+                }
+                else if faceData.faceLabel == "Heart"{
+                    let anchor = try! Entity.loadAnchor(named: "Hijab\(selectedHijab + 1)Heart", in: nil)
+                    uiView.scene.addAnchor(anchor)
+                }
         
     }
     
-
+    
 }
