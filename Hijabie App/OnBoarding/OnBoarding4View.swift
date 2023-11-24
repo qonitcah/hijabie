@@ -10,15 +10,17 @@ import SwiftUI
 
 struct OnBoarding4View: View {
     
-    @ObservedObject var faceData: FaceShapeData = FaceShapeData()
-    var UDData = UserDefaults.standard
+    @Environment(\.dismiss) var dismiss
+//    @ObservedObject var faceData: FaceShapeData = FaceShapeData()
+//    var UDData = UserDefaults.standard
     
     
     var body: some View {
         
-        NavigationView{
+//        NavigationView{
             ZStack{
-                Rectangle()
+                Color.white.ignoresSafeArea(.all)
+//                Rectangle()
                 VStack{
                     Spacer()
                     
@@ -47,6 +49,16 @@ struct OnBoarding4View: View {
                     
                     Spacer()
                     
+                    Button("OK") {
+                                    dismiss()
+                                }
+                    .frame(width: 309.0, height: 50.0)
+                                                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                                                .background(Color.black)
+                                                .clipShape(Capsule())
+                                                .foregroundStyle(Color.white)
+                    Spacer()
+                    
 //                    NavigationLink(destination: MainHijabModels(faceData: faceData)){
 //                        Text("Next")
 //                            .frame(width: 309.0, height: 50.0)
@@ -65,11 +77,11 @@ struct OnBoarding4View: View {
             }
             .ignoresSafeArea()
         }
-        .accentColor(.white)
-        .navigationBarTitle("Cancel")
+//        .accentColor(.white)
+//        .navigationBarTitle("Cancel")
         
     }
-}
+
 
 
 #Preview {

@@ -30,7 +30,7 @@ struct MainHijabModels: View {
     
     @State private var faceLabel : String = UserDefaults.standard.string(forKey: "faceLabel") ?? "Default"
     @State private var selectedHijab : Int = 0
-//    @State private var showAlert = true
+    @State private var isPresented = false
     
     @State var index = 0
     @State var selectedTab = 0
@@ -167,6 +167,11 @@ struct MainHijabModels: View {
             
         }
         .navigationBarBackButtonHidden()
+        .onAppear{
+            isPresented = true
+        }
+        .sheet(isPresented: $isPresented, content: {OnBoarding4View()
+        })
 //        .alert(isPresented: $showAlert) {
 //            Alert(title: Text("Tip:"), message: Text("Tie your hair\nor use an inner hijab\nto achieve a better hijab visualization"), dismissButton: .default(Text("OK")))
 //        }
