@@ -12,14 +12,14 @@ import ARKit
 enum TabbedItems: Int, CaseIterable{
     case tryOn = 0
     case tutor
-
+    
     var title: String{
         switch self {
         case .tryOn:
             return "TRY ON"
         case .tutor:
             return "HOW TO WEAR"
-
+            
         }
     }
 }
@@ -60,24 +60,29 @@ struct MainHijabModels: View {
                                MyColors(id: 8, name: "BROWN", color: Color.brown),
                                MyColors(id: 9, name: "LILAC", color: Color.purple)]
     
-    
+    var UDData = UserDefaults.standard
     
     var body: some View {
         
-        
+        //        ZStack{
+        //
+        //            BackgroundView()
         
         ZStack(alignment: .bottom){
+            
+           
             
             TabView(selection: $selectedTab) {
                 
                 
                 ZStack{
                     
+                    
                     // conditional untuk RealityKit AR model view
                     if (selectedHijab == 0 || selectedHijab == 1 || selectedHijab == 2){
-                       
+                        
                         FirstHijabModel(faceData: faceData, selectedHijab: $selectedHijab)
-//                        SecondHijabModel()
+                        //                        SecondHijabModel()
                             .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
                                 Color.clear
                                     .frame(height: 0)
@@ -86,51 +91,62 @@ struct MainHijabModels: View {
                     } else{
                         EmptyView()
                     }
-                
-//                    else if (selectedHijab == 1){
-////                        FirstHijabModel(faceData: faceData, modelName: "Hijab3")
-//                        SecondHijabModel()
-//                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
-//                                Color.clear
-//                                    .frame(height: 0)
-//                                    .background(Material.bar)
-//                            }
-//                    }
-//                    else if (selectedHijab == 2){
-//                        FirstHijabModel(faceData: faceData, selectedHijab: $selectedHijab)
-//                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
-//                                Color.clear
-//                                    .frame(height: 0)
-//                                    .background(Material.bar)
-//                            }
-//                    }
-//                    else if (selectedHijab == 3){
-//                        FourthHijabModels()
-//                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
-//                                Color.clear
-//                                    .frame(height: 0)
-//                                    .background(Material.bar)
-//                            }
-//                    }
-//                    else if (selectedHijab == 4){
-//                        FifthHijabModels()
-//                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
-//                                Color.clear
-//                                    .frame(height: 0)
-//                                    .background(Material.bar)
-//                            }
-//                    }
-//                    else {
-//                        ZStack{
-//                            Text("Coming Soon")
-//                                .font(.system(size: 20, weight: .light))
-//                                .foregroundStyle(.white)
-//                                .multilineTextAlignment(.center)
-//                                .padding()
-//                            .background(.ultraThinMaterial)}
-//                    }
                     
+                    //                    else if (selectedHijab == 1){
+                    ////                        FirstHijabModel(faceData: faceData, modelName: "Hijab3")
+                    //                        SecondHijabModel()
+                    //                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                    //                                Color.clear
+                    //                                    .frame(height: 0)
+                    //                                    .background(Material.bar)
+                    //                            }
+                    //                    }
+                    //                    else if (selectedHijab == 2){
+                    //                        FirstHijabModel(faceData: faceData, selectedHijab: $selectedHijab)
+                    //                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                    //                                Color.clear
+                    //                                    .frame(height: 0)
+                    //                                    .background(Material.bar)
+                    //                            }
+                    //                    }
+                    //                    else if (selectedHijab == 3){
+                    //                        FourthHijabModels()
+                    //                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                    //                                Color.clear
+                    //                                    .frame(height: 0)
+                    //                                    .background(Material.bar)
+                    //                            }
+                    //                    }
+                    //                    else if (selectedHijab == 4){
+                    //                        FifthHijabModels()
+                    //                            .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                    //                                Color.clear
+                    //                                    .frame(height: 0)
+                    //                                    .background(Material.bar)
+                    //                            }
+                    //                    }
+                    //                    else {
+                    //                        ZStack{
+                    //                            Text("Coming Soon")
+                    //                                .font(.system(size: 20, weight: .light))
+                    //                                .foregroundStyle(.white)
+                    //                                .multilineTextAlignment(.center)
+                    //                                .padding()
+                    //                            .background(.ultraThinMaterial)}
+                    //                    }
                     
+
+//                    Button(action: {
+//                       UDData.removeObject(forKey: "faceLabel")
+//                       UDData.removeObject(forKey: "isOnboardingComplete")
+//                       showOnboarding = true
+//                    }) {
+//                       Text("Reset")
+//                    }
+//
+//                    if showOnboarding {
+//                       OnBoarding1View()
+//                    }
                     
                     namaModel(models: $models, index: $index)
                         .offset(y:245)
@@ -172,13 +188,23 @@ struct MainHijabModels: View {
         }
         .sheet(isPresented: $isPresented, content: {OnBoarding4View()
         })
-//        .alert(isPresented: $showAlert) {
-//            Alert(title: Text("Tip:"), message: Text("Tie your hair\nor use an inner hijab\nto achieve a better hijab visualization"), dismissButton: .default(Text("OK")))
-//        }
+        //        .alert(isPresented: $showAlert) {
+        //            Alert(title: Text("Tip:"), message: Text("Tie your hair\nor use an inner hijab\nto achieve a better hijab visualization"), dismissButton: .default(Text("OK")))
+        //        }
+        //    }
     }
-    }
-
     
+//    func clearUserDefaults() {
+//        let defaults = UserDefaults.standard
+//        let dictionary = defaults.dictionaryRepresentation()
+//        dictionary.keys.forEach { key in
+//            defaults.removeObject(forKey: "faceLabel")
+//        }
+//    }
+    
+}
+
+
 
 
 struct MyColors : Identifiable {
@@ -197,17 +223,17 @@ struct Model : Identifiable {
 
 struct TabBarView: View {
     //    var tabbarItems: [String]
-
+    
     @Binding var selectedTab: Int
     var tabbedItems = ["TRY ON", "HOW TO WEAR"]
-
-
+    
+    
     var body: some View {
         ScrollViewReader { scrollView in
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(tabbedItems.indices, id: \.self) { index in
-
+                        
                         Text(tabbedItems[index])
                             .font(.subheadline)
                             .padding(.horizontal)
@@ -223,8 +249,8 @@ struct TabBarView: View {
                 }
             }
             .padding()
-
-
+            
+            
         }
     }
 }

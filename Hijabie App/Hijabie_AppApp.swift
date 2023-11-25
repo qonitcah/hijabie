@@ -20,8 +20,9 @@ struct Hijabie_AppApp: App {
                 MainHijabModels(faceData: FaceShapeData())
             } else {
                 OnBoarding1View()
-//                            ColorWheelPicker()
+                //                            ColorWheelPicker()
             }
+        
         })
     }
 }

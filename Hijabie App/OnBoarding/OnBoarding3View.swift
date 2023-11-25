@@ -10,20 +10,26 @@ import SwiftUI
 
 struct OnBoarding3View: View {
     @StateObject var faceData: FaceShapeData = FaceShapeData()
-//    @AppStorage("isOnboardingComplete") var isOnboardingComplete: Bool = false
+    //    @AppStorage("isOnboardingComplete") var isOnboardingComplete: Bool = false
+    @State private var showOnboarding = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var UDData = UserDefaults.standard
     
-//    init() {
-//           if let faceLabel = UDData.string(forKey: "faceLabel") {
-//               faceData.faceLabel = faceLabel
-//           }
-//        isOnboardingComplete = UDData.bool(forKey: "isOnboardingComplete")
-//       }
+    //    init() {
+    //           if let faceLabel = UDData.string(forKey: "faceLabel") {
+    //               faceData.faceLabel = faceLabel
+    //           }
+    //        isOnboardingComplete = UDData.bool(forKey: "isOnboardingComplete")
+    //       }
     
     var body: some View {
         NavigationView{
             ZStack{
+                
+                if showOnboarding {
+                    OnBoarding1View()
+                }
                 
                 FaceDetection(faceData: faceData)
                     .blur(radius: 5.0)
@@ -40,11 +46,26 @@ struct OnBoarding3View: View {
                 }
                 
                 VStack{
+                    //                    HStack{
+                    //                        Button(action: {
+                    //                          UDData.removeObject(forKey: "faceLabel")
+                    //                          UDData.removeObject(forKey: "isOnboardingComplete")
+                    //                          showOnboarding = true
+                    //                        }) {
+                    //                          Text("Reset")
+                    //                                .padding(.top, 60)
+                    //                        }
+                    //
+                    //                        NavigationLink(destination: OnBoarding1View(), isActive: $showOnboarding) {
+                    //                          EmptyView()
+                    //                        }
+                    
                     Text("The Result")
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.top, 60)
+                    //                    }
                     
                     Spacer()
                     
@@ -89,10 +110,29 @@ struct OnBoarding3View: View {
             }
             .ignoresSafeArea()
         }
-        .navigationBarBackButtonHidden()
-    }
-}
-
-#Preview {
-    OnBoarding3View()
-}
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    // Erase UserDefaults
+                    UDData.removeObject(forKey: "faceLabel")
+                    UDData.removeObject(forKey: "isOnboardingComplete")
+                    
+                    // Return to onboarding view
+                    presentationMode.wrappedValue.dismiss()
+                    
+                    // Turn off the camera
+                    // Add your code here
+                }) {
+                    HStack {
+                        Text("Reset")
+                    }
+                }
+            }
+        }
+                }
+            }
+            
+            #Preview {
+                OnBoarding3View()
+            }
