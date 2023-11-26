@@ -28,7 +28,7 @@ struct MainHijabModels: View {
     
     @ObservedObject var faceData: FaceShapeData
     
-    @State private var faceLabel : String = UserDefaults.standard.string(forKey: "faceLabel") ?? "Default"
+//    @State private var faceLabel : String = UserDefaults.standard.string(forKey: "faceLabel") ?? "Default"
     @State private var selectedHijab : Int = 0
     @State private var isPresented = false
     
@@ -44,7 +44,7 @@ struct MainHijabModels: View {
     
     @State var models = [
         Model(id: 0, name: "Pashmina", modelName: "hijab1.usdz", details: "1"),
-        Model(id: 1,name: "Instant Pashmina", modelName: "helmet_blender.usdz", details: "2"),
+        Model(id: 1,name: "Instant Jersey", modelName: "helmet_blender.usdz", details: "2"),
         Model(id: 2,name: "Square", modelName: "helmet_blender.usdz", details: "3"),
         Model(id: 3,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "4"),
         Model(id: 4,name: "Coming Soon", modelName: "helmet_blender.usdz", details: "5")]
@@ -158,6 +158,7 @@ struct MainHijabModels: View {
                 }
                 .ignoresSafeArea(.all, edges: .top)
                 .tag(0)
+                
                 
                 TutorialView(models: $models, selectedHijab: $selectedHijab, index: $index)
                 //                    .ignoresSafeArea(.all, edges: .top)

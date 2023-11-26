@@ -29,7 +29,8 @@ struct ContentView: View {
 }
 
 class FaceShapeData: ObservableObject{
-    @Published var faceLabel: String = ""
+//    @Published var faceLabel: String = ""
+    @Published var faceLabel : String = UserDefaults.standard.string(forKey: "faceLabel") ?? "Oval"
     @Published var faceConfidence: Double = 0.0
 }
 

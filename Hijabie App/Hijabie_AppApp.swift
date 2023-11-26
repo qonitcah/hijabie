@@ -18,6 +18,7 @@ struct Hijabie_AppApp: App {
         WindowGroup(content: {
             if UDData.bool(forKey: "isOnboardingComplete") {
                 MainHijabModels(faceData: FaceShapeData())
+                    .preferredColorScheme(.dark)
             } else {
                 OnBoarding1View()
                 //                            ColorWheelPicker()
@@ -25,4 +26,5 @@ struct Hijabie_AppApp: App {
         
         })
     }
+//        .preferredColorScheme(.dark)
 }

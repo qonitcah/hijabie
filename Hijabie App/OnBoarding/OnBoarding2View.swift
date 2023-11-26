@@ -68,7 +68,7 @@ struct OnBoarding2View: View {
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color(.black))
                                 .frame(width: drawingWidth ? 329 : 0, alignment: .leading)
-                                .animation(.easeInOut(duration: 2.5).repeatForever(autoreverses: false), value: drawingWidth)
+                                .animation(.easeInOut(duration: 3.0).repeatForever(autoreverses: false), value: drawingWidth)
                             
                         }
                         .frame(width: 329, height: 7)
@@ -85,7 +85,7 @@ struct OnBoarding2View: View {
         .ignoresSafeArea()
         .onAppear {
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                 
                 withAnimation {
                     self.isActive = true

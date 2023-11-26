@@ -9,19 +9,15 @@ import SwiftUI
 
 
 struct OnBoarding3View: View {
+    
     @StateObject var faceData: FaceShapeData = FaceShapeData()
-    //    @AppStorage("isOnboardingComplete") var isOnboardingComplete: Bool = false
+//    @ObservedObject var faceData: FaceShapeData
+    
     @State private var showOnboarding = false
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    var UDData = UserDefaults.standard
-    
-    //    init() {
-    //           if let faceLabel = UDData.string(forKey: "faceLabel") {
-    //               faceData.faceLabel = faceLabel
-    //           }
-    //        isOnboardingComplete = UDData.bool(forKey: "isOnboardingComplete")
-    //       }
+//    @AppStorage(faceData.faceLabel) var faceLabel: String = ""i
     
     var body: some View {
         NavigationView{
@@ -46,26 +42,12 @@ struct OnBoarding3View: View {
                 }
                 
                 VStack{
-                    //                    HStack{
-                    //                        Button(action: {
-                    //                          UDData.removeObject(forKey: "faceLabel")
-                    //                          UDData.removeObject(forKey: "isOnboardingComplete")
-                    //                          showOnboarding = true
-                    //                        }) {
-                    //                          Text("Reset")
-                    //                                .padding(.top, 60)
-                    //                        }
-                    //
-                    //                        NavigationLink(destination: OnBoarding1View(), isActive: $showOnboarding) {
-                    //                          EmptyView()
-                    //                        }
                     
                     Text("The Result")
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.top, 60)
-                    //                    }
                     
                     Spacer()
                     
@@ -75,7 +57,6 @@ struct OnBoarding3View: View {
                         .foregroundStyle(.white)
                         .font(.custom("SF Pro Text", size: 20))
                     
-                    
                     Spacer()
                     
                     Text(faceData.faceLabel)
@@ -83,9 +64,13 @@ struct OnBoarding3View: View {
                         .font(.custom("SF Compact", size: 38))
                         .foregroundColor(.white)
                         .onChange(of: faceData.faceLabel){
-                            UDData.set(faceData.faceLabel, forKey: "faceLabel")
+                            UserDefaults.standard.set(faceData.faceLabel, forKey: "faceLabel")
+                            UserDefaults.standard.synchronize()
                         }
-                    
+//                        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("faceLabelChanged"))) { _ in
+//                            UserDefaults.standard.set(faceData.faceLabel, forKey: "faceLabel")
+//                            UserDefaults.standard.synchronize()
+//                        }
                     
                     Spacer()
                     
@@ -101,7 +86,8 @@ struct OnBoarding3View: View {
                             .foregroundStyle(Color.black)
                             .padding(.bottom, 80)
                             .onAppear(perform: {
-                                UDData.set(true, forKey: "isOnboardingComplete")
+                                UserDefaults.standard.set(true, forKey: "isOnboardingComplete")
+                                UserDefaults.standard.synchronize()
                             })
                     })
                 }
@@ -115,8 +101,8 @@ struct OnBoarding3View: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     // Erase UserDefaults
-                    UDData.removeObject(forKey: "faceLabel")
-                    UDData.removeObject(forKey: "isOnboardingComplete")
+                    UserDefaults.standard.removeObject(forKey: "faceLabel")
+                    UserDefaults.standard.removeObject(forKey: "isOnboardingComplete")
                     
                     // Return to onboarding view
                     presentationMode.wrappedValue.dismiss()
@@ -124,15 +110,13 @@ struct OnBoarding3View: View {
                     // Turn off the camera
                     // Add your code here
                 }) {
-                    HStack {
                         Text("Reset")
-                    }
                 }
             }
         }
-                }
-            }
-            
-            #Preview {
-                OnBoarding3View()
-            }
+    }
+}
+
+//#Preview {
+//    OnBoarding3View()
+//}

@@ -16,15 +16,12 @@ struct TutorialView: View {
     @State var isStepSelected: Int = 0
     @State var isPlaying: Bool = true
     @State var isAppear: Bool = true
-//    @State private var currentVideoIndex = -1
     @State var currentVideoIndex: Int = 0
     @State var player: AVPlayer?
-//    = {
-//        if let bundle = Bundle.main.path(forResource: "tutor1video", ofType: "mp4") {
-//            return .init(url: URL(fileURLWithPath: bundle))
-//        }
-//        return nil
-//    }()
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var UDData = UserDefaults.standard
     
     @State var videos = [
         Videos(id: 0, name: "tutor1video", step: [StepsVideos(id: 0, text: "STEP 1\nSatu sisi hijab lebih pendek dari lainnya"),
@@ -42,12 +39,12 @@ struct TutorialView: View {
                             CMTime(seconds: 26, preferredTimescale: 1),
                             CMTime(seconds: 30, preferredTimescale: 1)]),
         Videos(id: 1, name: "tutor2video",step: [StepsVideos(id: 0, text: "STEP 1\nPakai hijab instan berbahan jersey\nlalu ikat rapi"),
-                                                  StepsVideos(id: 1, text: "STEP 2\nTarik bagian atas kepala\nlalu labuhkan di atas kepala"),
-                                                  StepsVideos(id: 2, text: "STEP 3\nRapikan sisi kanan dan kiri\nlalu sematkan peniti/jarum pentul di bagian bawah dagu"),
-                                                  StepsVideos(id: 3, text: "STEP 4\nTarik satu sisi\nke arah belakang"),
-                                                  StepsVideos(id: 4, text: "STEP 5\nRapikan sisi yang lain\ndengan menarik sisinya menutupi dada"),
-                                                  StepsVideos(id: 5, text: "STEP 6\nSiapkan 2 buah peniti\nlalu sematkan di setiap sudutnya"),
-                                                  StepsVideos(id: 6, text: "STEP 7\nTerakhir rapikan & jadi deh!")],
+                                                 StepsVideos(id: 1, text: "STEP 2\nTarik bagian atas kepala\nlalu labuhkan di atas kepala"),
+                                                 StepsVideos(id: 2, text: "STEP 3\nRapikan sisi kanan dan kiri\nlalu sematkan peniti/jarum pentul di bagian bawah dagu"),
+                                                 StepsVideos(id: 3, text: "STEP 4\nTarik satu sisi\nke arah belakang"),
+                                                 StepsVideos(id: 4, text: "STEP 5\nRapikan sisi yang lain\ndengan menarik sisinya menutupi dada"),
+                                                 StepsVideos(id: 5, text: "STEP 6\nSiapkan 2 buah peniti\nlalu sematkan di setiap sudutnya"),
+                                                 StepsVideos(id: 6, text: "STEP 7\nTerakhir rapikan & jadi deh!")],
                startTimes: [CMTime(seconds: 0, preferredTimescale: 1),
                             CMTime(seconds: 8, preferredTimescale: 1),
                             CMTime(seconds: 13, preferredTimescale: 1),
@@ -89,13 +86,12 @@ struct TutorialView: View {
                             .background(Material.bar)
                     }
                 
-                   
                     .onChange(of: currentVideoIndex) { oldValue, newValue in
                         
                         if let bundle = Bundle.main.path(forResource: videos[newValue].name ?? "tutor1video", ofType: "mp4") {
                             self.player = AVPlayer(url: URL(fileURLWithPath: bundle))
                             print(videos[newValue].name,newValue)
-
+                            
                             self.player?.play()
                         }
                     }
@@ -119,16 +115,30 @@ struct TutorialView: View {
                 Spacer()
             }
             
+//            Button(action: {
+//                // Erase UserDefaults
+//                UDData.removeObject(forKey: "faceLabel")
+//                UDData.removeObject(forKey: "isOnboardingComplete")
+//                
+//                // Return to onboarding view
+//                presentationMode.wrappedValue.dismiss()
+//                
+//                // Turn off the camera
+//                // Add your code here
+//            }) {
+//                    Text("Reset")
+//            }
+            
             
             StepTutorialButton(videos: $videos, selectedStepIndex: $selectedStepIndex, isStepSelected: $isStepSelected, player: $player)
                 .position(.init(x: 240, y: 80))
             
             
             namaModel(models: $models, index: $index)
-                .offset(y:220)
+                .offset(y:195)
             
             ChooseHijabModel(index: $index, models: $models, isAppear: $isAppear, selectedHijab: $selectedHijab, player: $player, videos: $videos, currentVideoIndex: $currentVideoIndex)
-                .position(.init(x: 280, y: 637))
+                .position(.init(x: 280, y: 600))
             
         } .onAppear() {
             if player == nil{
@@ -140,6 +150,31 @@ struct TutorialView: View {
             }
             
         }
+        
+        .onDisappear {
+            player?.pause()
+        }
+        
+        
+        //        .toolbar {
+        //            ToolbarItem(placement: .navigationBarLeading) {
+        //                Button(action: {
+        //                    // Erase UserDefaults
+        //                    UDData.removeObject(forKey: "faceLabel")
+        //                    UDData.removeObject(forKey: "isOnboardingComplete")
+        //
+        //                    // Return to onboarding view
+        //                    presentationMode.wrappedValue.dismiss()
+        //
+        //                    // Turn off the camera
+        //                    // Add your code here
+        //                }) {
+        //                    HStack {
+        //                        Text("Reset")
+        //                    }
+        //                }
+        //            }
+        //        }
     }
     
     
